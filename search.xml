@@ -19,7 +19,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>Gitee图床搭建</title>
     <url>/2021/04/25/Gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="Gitee图床搭建"><a href="#Gitee图床搭建" class="headerlink" title="Gitee图床搭建"></a>Gitee图床搭建</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
 <li><a class="link"   href="https://github.com/Molunerfinn/PicGo/releases" >PicGo<i class="fas fa-external-link-alt"></i></a>(请确保你安装了 Node.js， 并且版本 &gt;= 8)</li>
@@ -87,5 +87,11 @@
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210424003656340.png" alt="image-20210424003656340"></p>
 <p>定时清理：C:\Users\Administrator.DESKTOP-6FVFRKA\AppData\Roaming\Typora\typora-user-images</p>
 ]]></content>
+      <categories>
+        <category>图床</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+      </tags>
   </entry>
 </search>
