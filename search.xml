@@ -20,8 +20,8 @@
   </entry>
   <entry>
     <title>Gitee图床搭建</title>
-    <url>/2021/04/25/Gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="Gitee图床搭建"><a href="#Gitee图床搭建" class="headerlink" title="Gitee图床搭建"></a>Gitee图床搭建</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
+    <url>/2021/04/24/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="Gitee-PicGo图床搭建"><a href="#Gitee-PicGo图床搭建" class="headerlink" title="Gitee+PicGo图床搭建"></a>Gitee+PicGo图床搭建</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
 <li><a class="link"   href="https://github.com/Molunerfinn/PicGo/releases" >PicGo<i class="fas fa-external-link-alt"></i></a>(请确保你安装了 Node.js， 并且版本 &gt;= 8)</li>
 <li><a class="link"   href="https://www.typora.io/" >Tpyora<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
@@ -66,14 +66,16 @@
 </ol>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210424002655410.png" alt="image-20210424002655410"></p>
 <ul>
-<li>repo：用户名/仓库名称，比如仓库leonG7/blogImage，找不到的可以直接复制仓库的url</li>
-</ul>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vbGVvbkc3L2Jsb2dJbWFnZS9yYXcvbWFzdGVyL2ltZy8yMDIwMDExODIxMTYyNC5wbmc?x-oss-process=image/format,png" alt="img"></p>
-<ul>
-<li>branch：分支，这里写上master</li>
-<li>token：填入生成的私人令牌</li>
-<li>path：存储图片的路径，一般写上img</li>
-<li>customPath：提交消息，这一项和下一项customURL都不用填。在提交到码云后，会显示提交消息，插件默认提交的是 <code>Upload 图片名 by picGo - 时间</code></li>
+<li><p>repo：用户名/仓库名称，比如仓库carrywl/image-hosting，找不到的可以直接复制仓库的url</p>
+</li>
+<li><p>branch：分支，这里写上master</p>
+</li>
+<li><p>token：填入生成的私人令牌</p>
+</li>
+<li><p>path：存储图片的路径，一般写上img</p>
+</li>
+<li><p>customPath：提交消息，这一项和下一项customURL都不用填。在提交到码云后，会显示提交消息，插件默认提交的是 <code>Upload 图片名 by picGo - 时间</code></p>
+</li>
 </ul>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ol>
 <li>打开Typora</li>
@@ -85,7 +87,7 @@
 <li>点击验证图片上传</li>
 </ol>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210424003656340.png" alt="image-20210424003656340"></p>
-<p>定时清理：C:\Users\Administrator.DESKTOP-6FVFRKA\AppData\Roaming\Typora\typora-user-images</p>
+<p>截图粘贴到Typora时，图片会被默认存到C盘，可以定时清理：C:\Users\你电脑的用户名\AppData\Roaming\Typora\typora-user-images</p>
 ]]></content>
       <categories>
         <category>图床</category>
