@@ -88,6 +88,12 @@
 </ol>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210424003656340.png" alt="image-20210424003656340"></p>
 <p>截图粘贴到Typora时，图片会被默认存到C盘，可以定时清理：C:\Users\你电脑的用户名\AppData\Roaming\Typora\typora-user-images</p>
+<blockquote>
+<p>参考文章</p>
+<ul>
+<li><a class="link"   href="https://juejin.cn/post/6954942216808693773#heading-26" >https://juejin.cn/post/6954942216808693773#heading-26<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</blockquote>
 ]]></content>
       <categories>
         <category>图床</category>
