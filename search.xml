@@ -23,7 +23,7 @@
     <url>/2021/04/24/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="Gitee-PicGo图床搭建"><a href="#Gitee-PicGo图床搭建" class="headerlink" title="Gitee+PicGo图床搭建"></a>Gitee+PicGo图床搭建</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
 <li><a class="link"   href="https://github.com/Molunerfinn/PicGo/releases" >PicGo<i class="fas fa-external-link-alt"></i></a>(请确保你安装了 Node.js， 并且版本 &gt;= 8)</li>
-<li><a class="link"   href="https://www.typora.io/" >Tpyora<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://www.typora.io/" >Typora<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
 <p><a class="link"   href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" >PicGo使用文档<i class="fas fa-external-link-alt"></i></a></p>
 <p>安装上面两个软件</p>
@@ -91,7 +91,7 @@
 <blockquote>
 <p>参考文章</p>
 <ul>
-<li><a class="link"   href="https://juejin.cn/post/6954942216808693773#heading-26" >https://juejin.cn/post/6954942216808693773#heading-26<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   href="https://blog.csdn.net/disILLL/article/details/103962241" >https://blog.csdn.net/disILLL/article/details/103962241<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </blockquote>
 ]]></content>
@@ -100,6 +100,33 @@
       </categories>
       <tags>
         <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2021/05/02/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h2><p>next和nextLine区别：</p>
+<p>next：</p>
+<ul>
+<li>一定要读取到有效字符后才可以结束输入。</li>
+<li>对输入有效字符之前遇到的空白，next会自动将其去掉</li>
+<li>只有输入有效字符后才将其后面输入的空白作为分隔符或结束符</li>
+<li><strong>next不能得到带有空格的字符串</strong></li>
+</ul>
+<p>nextLine:</p>
+<ul>
+<li>以Enter为结束符</li>
+<li>可以获得空白</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">    Scanner scanner1 = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;next请输入:&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(scanner.hasNext())&#123;</span><br><span class="line">        String str = scanner.next();</span><br><span class="line">        System.out.println(<span class="string">&quot;next接受:&quot;</span>+str);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;nextLine请输入:&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(scanner1.hasNext())&#123;</span><br><span class="line">        String str = scanner1.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;nextLine接受:&quot;</span>+str);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//凡是属于IO流的如果不关闭就会占用资源</span></span><br><span class="line">    scanner.close();</span><br><span class="line">    scanner1.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210502224706949.png" alt="image-20210502224706949"></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
 </search>
