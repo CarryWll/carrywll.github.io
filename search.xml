@@ -129,4 +129,53 @@
         <tag>JAVA</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Docker</title>
+    <url>/2021/05/15/Docker/</url>
+    <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><ul>
+<li>查看docker容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看在运行的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="meta">#</span><span class="bash">显示所有的容器，包括未运行的</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入nginx内部</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">容器ID 也就是CONTAINER ID 可以通过docker ps来查看</span></span><br><span class="line">docker exec -it 容器ID bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将本地的文件放入docker容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker cp 文件路径 容器ID:docker容器地址</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动一个nginx容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d -p 8080:80 --name nginx-8080 nginx</span><br></pre></td></tr></table></figure>
+
+<p>-p：设置端口映射，8080:80表示将本地的8080端口映射到容器内部的80端口</p>
+<p>-d：表示设置容器在后台运行</p>
+<p>–name：表示设置容器名称</p>
+<ul>
+<li>关闭一个nginx容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">names代表设置容器名称</span></span><br><span class="line">docker stop names|容器ID</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动一个已经停止的nginx容器</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker start names|容器ID</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>构建镜像</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -t 镜像名称 .</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>
