@@ -104,8 +104,10 @@
   </entry>
   <entry>
     <title>Java基础</title>
-    <url>/2021/05/16/Java%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h2><p>next和nextLine区别：</p>
+    <url>/2021/05/29/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><p>gitee地址：<a class="link"   href="https://gitee.com/carrywl/java-basic.git" >https://gitee.com/carrywl/java-basic.git<i class="fas fa-external-link-alt"></i></a></p>
+<p>八大基本类型 byte,short,char==int==long==float==double boolean</p>
+<h2 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h2><p>next和nextLine区别：</p>
 <p>next：</p>
 <ul>
 <li>一定要读取到有效字符后才可以结束输入。</li>
@@ -132,6 +134,37 @@
 <h2 id="计算器练习"><a href="#计算器练习" class="headerlink" title="计算器练习"></a>计算器练习</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 计算器，要求实现加减乘除功能，并且能够循环接收新的数据，通过用户交互实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 写4个方法:加减乘除</span></span><br><span class="line"><span class="comment">     * 利用循环+ switch进行用户交互</span></span><br><span class="line"><span class="comment">     * 传递需要操作的两个数</span></span><br><span class="line"><span class="comment">     * 输出结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (scanner.hasNextDouble())&#123;</span><br><span class="line">            <span class="keyword">double</span> num1 = scanner.nextDouble();;</span><br><span class="line">            String mark = scanner.next();</span><br><span class="line">            <span class="keyword">double</span> num2 = scanner.nextDouble();</span><br><span class="line">            <span class="keyword">switch</span>(mark)&#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;+&quot;</span>:</span><br><span class="line">                    add(num1,num2);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;-&quot;</span>:</span><br><span class="line">                    minus(num1,num2);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;*&quot;</span>:</span><br><span class="line">                    multiply(num1,num2);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">&quot;/&quot;</span>:</span><br><span class="line">                    except(num1,num2);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    System.out.println(<span class="string">&quot;请正确输入&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;输出任意字母退出&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> num1,<span class="keyword">double</span> num2)</span></span>&#123;</span><br><span class="line">        System.out.println(num1+num2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">minus</span><span class="params">(<span class="keyword">double</span> num1,<span class="keyword">double</span> num2)</span></span>&#123;</span><br><span class="line">        System.out.println(num1-num2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">multiply</span><span class="params">(<span class="keyword">double</span> num1,<span class="keyword">double</span> num2)</span></span>&#123;</span><br><span class="line">        System.out.println(num1*num2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">except</span><span class="params">(<span class="keyword">double</span> num1,<span class="keyword">double</span> num2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num2 == <span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;分母不可为0&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(num1/num2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210516223527021.png" alt="image-20210516223527021"></p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><ol>
+<li>比较数组中，两个相邻的元素，如果第一个数比第二个数大，我们就交换他们的位置</li>
+<li>每一次比较，都会产生出一个最大，或者最小的数字</li>
+<li>下一轮则可以少一次循环</li>
+<li>依次循环，直到结束</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] array)&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; array.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="comment">//内层循环，比较两个数，如果第一个比第二个树大，那么交换位置</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length-<span class="number">1</span>-i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[j+<span class="number">1</span>] &gt; array[j])&#123;</span><br><span class="line">                temp = array[j];</span><br><span class="line">                array[j] = array[j+<span class="number">1</span>];</span><br><span class="line">                array[j+<span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>本质：以类的方式组织代码，以对象的组织（封装）数据。</p>
+<p>三大特性：封装、继承、多态</p>
+<ul>
+<li>super注意点：</li>
+</ul>
+<ol>
+<li>super调用父类的构造方法，必须在构造方法的第一个</li>
+<li>super必须只能出现在子类的方法或者构造方法中</li>
+<li>super和this不能同时调用构造方法</li>
+</ol>
+<ul>
+<li><p>super和this不同：</p>
+<p>代表的对象不同：</p>
+<p>​        this:本身调用者这个对象</p>
+<p>​        super:代表父类对象的应用    </p>
+<p>前提：</p>
+<p>​        this:没有继承也可以使用</p>
+<p>​        super:只能在继承的条件下使用</p>
+<p>构造方法：</p>
+<p>​        this():本来的构造</p>
+<p>​        super():父类的构造</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>JAVA</category>
