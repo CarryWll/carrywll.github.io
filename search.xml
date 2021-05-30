@@ -242,4 +242,29 @@
         <tag>Spring Boot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java多线程</title>
+    <url>/2021/05/30/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h2><ol>
+<li>继承Thread类</li>
+</ol>
+<p>继承Thread类，重写run()方法，调用start开启线程</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread01</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我在写代码。。。&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个线程对象</span></span><br><span class="line">        TestThread01 testThread01 = <span class="keyword">new</span> TestThread01();</span><br><span class="line">        <span class="comment">//调用start开启线程</span></span><br><span class="line">        testThread01.start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我在看代码。。。&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210530145537199.png" alt="image-20210530145537199"></p>
+<p>注意：线程开启不一定立即执行，由CPU调度执行</p>
+<ol start="2">
+<li>实现Runnable接口</li>
+</ol>
+<ol start="3">
+<li>实现Callable接口</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
 </search>
