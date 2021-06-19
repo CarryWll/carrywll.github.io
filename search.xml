@@ -245,7 +245,7 @@
   </entry>
   <entry>
     <title>Java多线程</title>
-    <url>/2021/06/20/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <url>/2021/06/19/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h2><ol>
 <li>继承Thread类</li>
 </ol>
