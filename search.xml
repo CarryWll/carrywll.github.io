@@ -345,14 +345,17 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>网络编程</title>
     <url>/2021/07/01/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<hr>
-<p>title:网络编程</p>
-<p>date:2021-07-01</p>
-<p>tags:[JAVA,计算机网络]</p>
-<h2 id="categories-JAVA"><a href="#categories-JAVA" class="headerlink" title="categories:JAVA"></a>categories:JAVA</h2><h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有端口</span></span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查找具体某个端口号</span></span><br><span class="line">netstat -ano|findstr &quot;1900&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看指定端口的进程</span></span><br><span class="line">tasklist|findstr &quot;5200&quot;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有端口</span></span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查找具体某个端口号</span></span><br><span class="line">netstat -ano|findstr &quot;1900&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看指定端口的进程</span></span><br><span class="line">tasklist|findstr &quot;5200&quot;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>计算机网络</tag>
+      </tags>
   </entry>
 </search>
