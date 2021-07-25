@@ -358,4 +358,48 @@
         <tag>计算机网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nginx</title>
+    <url>/2021/07/24/Nginx/</url>
+    <content><![CDATA[<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><ul>
+<li><p>反向代理</p>
+</li>
+<li><p>负载均衡</p>
+</li>
+<li><p>动静分离</p>
+</li>
+</ul>
+<h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><ol>
+<li><p><strong>安装gcc</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>PCRE pcre-devel 安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>zlib安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>OpenSSL 安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure></li>
+<li><p>手动下载.tar.gz安装包，地址：<a class="link"   href="https://nginx.org/en/download.html" >https://nginx.org/en/download.html<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">看本机是否已经装过nginx</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">上传到linux -- nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解压</span></span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">切换到nginx目录,自动配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">安装</span> </span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line"><span class="meta">#</span><span class="bash">启动</span></span><br><span class="line">./nginx</span><br><span class="line"><span class="meta">#</span><span class="bash">停止</span></span><br><span class="line">./nginx -s stop</span><br><span class="line"><span class="meta">#</span><span class="bash">安全退出</span></span><br><span class="line">./nginx -s quit</span><br><span class="line"><span class="meta">#</span><span class="bash">重新加载配置文件</span></span><br><span class="line">./nginx -s reload</span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程</span></span><br><span class="line">ps aux|grep nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<p>连接失败，检查端口</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看防火墙规则</span></span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询端口是否开放</span></span><br><span class="line">firewall-cmd --query-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开放80端口</span></span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除端口</span></span><br><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash">重启防火墙(修改配置后要重启防火墙)</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 参数解释</span></span><br><span class="line">1、firwall-cmd：是Linux提供的操作firewall的一个工具；</span><br><span class="line">2、--permanent：表示设置为持久；</span><br><span class="line">3、--add-port：标识添加的端口；</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
 </search>
