@@ -381,16 +381,16 @@
 <li><p>手动下载.tar.gz安装包，地址：<a class="link"   href="https://nginx.org/en/download.html" >https://nginx.org/en/download.html<i class="fas fa-external-link-alt"></i></a></p>
 </li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">看本机是否已经装过nginx</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">上传到linux -- nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解压</span></span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">切换到nginx目录,自动配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">安装</span> </span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">看本机是否已经装过nginx</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line">-- 安装包上传到linux的usr/local目录下</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解压</span></span><br><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">切换到nginx目录,自动配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">安装</span> </span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
-
-
+<p>注：./configure执行成功</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210726172108304.png" alt="configure报错"></p>
 <h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin/</span><br><span class="line"><span class="meta">#</span><span class="bash">启动</span></span><br><span class="line">./nginx</span><br><span class="line"><span class="meta">#</span><span class="bash">停止</span></span><br><span class="line">./nginx -s stop</span><br><span class="line"><span class="meta">#</span><span class="bash">安全退出</span></span><br><span class="line">./nginx -s quit</span><br><span class="line"><span class="meta">#</span><span class="bash">重新加载配置文件</span></span><br><span class="line">./nginx -s reload</span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程</span></span><br><span class="line">ps aux|grep nginx</span><br></pre></td></tr></table></figure>
 
 
 
 <p>连接失败，检查端口</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看防火墙规则</span></span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询端口是否开放</span></span><br><span class="line">firewall-cmd --query-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开放80端口</span></span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除端口</span></span><br><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash">重启防火墙(修改配置后要重启防火墙)</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 参数解释</span></span><br><span class="line">1、firwall-cmd：是Linux提供的操作firewall的一个工具；</span><br><span class="line">2、--permanent：表示设置为持久；</span><br><span class="line">3、--add-port：标识添加的端口；</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看防火墙规则</span></span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询端口是否开放</span></span><br><span class="line">firewall-cmd --query-port=80/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开放80端口</span></span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除端口</span></span><br><span class="line">firewall-cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash">重启防火墙(修改配置后要重启防火墙)</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 参数解释</span></span><br><span class="line">1、firwall-cmd：是Linux提供的操作firewall的一个工具；</span><br><span class="line">2、--permanent：表示设置为持久；</span><br><span class="line">3、--add-port：标识添加的端口；</span><br></pre></td></tr></table></figure>
 
 
 
@@ -400,6 +400,17 @@
       </categories>
       <tags>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux指令</title>
+    <url>/2021/07/26/Linux%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
