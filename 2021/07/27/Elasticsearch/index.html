@@ -9,7 +9,7 @@
     
     <title>
         
-            Linux指令 |
+            Elasticsearch |
         
         Carry
     </title>
@@ -147,7 +147,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Linux指令</span>
+            <span class="title-hover-animation">Elasticsearch</span>
         </div>
 
         
@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-07-26 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-07-27 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -173,7 +173,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/Linux/">Linux</a>&nbsp;
+                        <a href="/categories/Elasticsearch/">Elasticsearch</a>&nbsp;
                     </li>
                 
             </ul>
@@ -185,7 +185,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                        <a href="/tags/Elasticsearch/">Elasticsearch</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,18 +208,130 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1>
+            <h1 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h1><h2 id="Linux环境安装Es"><a href="#Linux环境安装Es" class="headerlink" title="Linux环境安装Es"></a>Linux环境安装Es</h2><p>前提环境：jdk8以上</p>
+<ol>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" >下载<i class="fas fa-external-link-alt"></i></a>，上传到/usr/local下，解压</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u301-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置环境变量</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>注：-bash: vim: 未找到命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装</span></span><br><span class="line">yum -y install vim*</span><br></pre></td></tr></table></figure>
+
+<p>按i进入编辑，在profile文件尾部添加如下内容</p>
+<p>export JAVA_HOME=/usr/local/jdk1.8.0_301  #jdk安装目录</p>
+<p>export JRE_HOME=${JAVA_HOME}/jre</p>
+<p>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH</p>
+<p>export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin</p>
+<p>export PATH=$PATH:${JAVA_PATH}</p>
+<p>通过命令<strong>source /etc/profile</strong>让profile文件立即生效</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727151210278.png" alt="image-20210727151210278"></p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf elasticsearch-7.13.4-linux-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line">cd /usr/local/elasticsearch-7.13.4/bin/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">elasticsearch不能以root权限来运行</span></span><br><span class="line">adduser wanglei</span><br><span class="line">passwd ******</span><br><span class="line">chown -R wanglei /usr/local/elasticsearch-7.13.4</span><br><span class="line">su wanglei</span><br><span class="line"></span><br><span class="line">./elasticsearch</span><br></pre></td></tr></table></figure>
+
+<p>修改/usr/local/elasticsearch-7.13.4/conf/elasticsearch.yml</p>
+<p>network.host: 0.0.0.0;以便使用虚拟机外的网络通过ip访问</p>
+<p>错误：启动失败</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727163751938.png" alt="image-20210727163751938"></p>
+<blockquote>
+<p>参考文章：1. <a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/zhi-leaf/p/8484337.html" >https://www.cnblogs.com/zhi-leaf/p/8484337.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>​                   2. <a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/happyzxs/article/details/89156068" >https://blog.csdn.net/happyzxs/article/details/89156068<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<ul>
+<li>问题：bootstrap check failure [1] of [3]: max number of threads [3795] for user [wanglei] is too low, increase to at least [4096]</li>
+</ul>
+<p>解决：</p>
+<p>修改配置文件/etc/security/limits.conf，增加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*     soft    nproc     4096</span><br><span class="line">*     hard    nproc     4096</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后查看是否生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ulimit -Hu</span><br><span class="line">ulimit -Su</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>问题：bootstrap check failure [2] of [3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</li>
+</ul>
+<p>解决：修改/etc/sysctl.conf文件，增加配置vm.max_map_count=262144</p>
+<p>执行sysctl -p生效</p>
+<ul>
+<li>问题：bootstrap check failure [3] of [3]: the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured</li>
+</ul>
+<p>解决：修改/usr/local/elasticsearch-7.13.4/conf/elasticsearch.yml，取消注释保留一个节点cluster.initial_master_nodes: [“node-1”]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看elastic</span></span><br><span class="line">ps -ef | grep elastic</span><br><span class="line"><span class="meta">#</span><span class="bash">后台运行</span></span><br><span class="line">./elasticsearch -d</span><br><span class="line"><span class="meta">#</span><span class="bash">关闭</span></span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
+
+
+
+<p>跨域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Linux环境安装Kibana"><a href="#Linux环境安装Kibana" class="headerlink" title="Linux环境安装Kibana"></a>Linux环境安装Kibana</h2><p>前提环境：<a class="link"   target="_blank" rel="noopener" href="https://nodejs.org/en/download/" >Nodejs<i class="fas fa-external-link-alt"></i></a></p>
+<ol>
+<li>下载解压</li>
+</ol>
+<p>tar -xvf node-v14.17.3-linux-x64.tar.xz</p>
+<ol start="2">
+<li>检查文件目录是否完整：检查node，npm，npx是否存在</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727225955344.png" alt="image-20210727225955344"></p>
+<ol start="3">
+<li>创建软连接</li>
+</ol>
+<p>ln -s /usr/local/node-v14.17.3-linux-x64/bin/npm /usr/local/bin</p>
+<p>ln -s /usr/local/node-v14.17.3-linux-x64/bin/node /usr/local/bin</p>
+<p>/usr/local/node-v14.17.3-linux-x64/bin/npm|node此地址为安装的nodejs的文件的绝对地址下的npm或node所在位置，根据每个人的情况不同。</p>
+<ol start="4">
+<li>检查是否安装成功  node -v</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727230506312.png" alt="image-20210727230506312"></p>
+<blockquote>
+<p>参考文章：<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/cirry/p/13599472.html" >https://www.cnblogs.com/cirry/p/13599472.html<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p>Kibana要和Elasticsearch版本一致</p>
+<ol>
+<li>解压</li>
+</ol>
+<p>tar -zvxf kibana-7.13.4-linux-x86_64.tar.gz</p>
+<ol start="2">
+<li>修改配置</li>
+</ol>
+<p> cd /usr/local/kibana-7.13.4-linux-x86_64/config/</p>
+<p>vim kibana.yml</p>
+<p>解开以下配置</p>
+<p>server.port: 5601 </p>
+<p>server.host: “0.0.0.0” </p>
+<p>elasticsearch.hosts: [“<a href="http://localhost:9200&quot;]">http://localhost:9200&quot;]</a> </p>
+<p>kibana.index: “.kibana”</p>
+<p>汉化</p>
+<p>i18n.locale: “zh-CN”</p>
+<p>授权 </p>
+<p>chown -R wanglei /usr/local/kibana</p>
+<p>启动</p>
+<p>cd /usr/local/kibana-7.13.4-linux-x86_64/bin/</p>
+<p>kibana ./kibana </p>
+<p>//后台运行</p>
+<p>kibana ./kibana &amp;</p>
+<blockquote>
+<p>参考文章：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35551748/article/details/106960652" >https://blog.csdn.net/qq_35551748/article/details/106960652<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：Linux指令</li>
+        <li>本文标题：Elasticsearch</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-07-26 00:00:00</li>
+        <li>创建时间：2021-07-27 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/07/26/Linux指令/
+            本文链接：https://carrywll.github.io/2021/07/27/Elasticsearch/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -233,29 +345,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/07/27/Elasticsearch/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Elasticsearch</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/07/24/Nginx/"
+                           href="/2021/07/26/Linux%E6%8C%87%E4%BB%A4/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Nginx</span>
+                                <span class="post-nav-title-item">Linux指令</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -453,7 +550,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Elasticsearch"><span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Es"><span class="nav-text">Linux环境安装Es</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Kibana"><span class="nav-text">Linux环境安装Kibana</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
