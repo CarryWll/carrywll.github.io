@@ -238,6 +238,7 @@
 <p>修改/usr/local/elasticsearch-7.13.4/conf/elasticsearch.yml配置network.host</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#目的：以便使用本地虚拟机外的本地网络通过ip访问</span><br><span class="line">network.host: 0.0.0.0;</span><br><span class="line">#切换用户</span><br><span class="line">su wanglei</span><br><span class="line">#启动</span><br><span class="line">.&#x2F;elasticsearch</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210728153052546.png" alt="image-20210728153052546"></p>
 <p>注：启动失败</p>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727163751938.png" alt="image-20210727163751938"></p>
 <ul>
@@ -272,15 +273,6 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看elastic</span></span><br><span class="line">ps -ef | grep elastic</span><br><span class="line"><span class="meta">#</span><span class="bash">后台运行</span></span><br><span class="line">./elasticsearch -d</span><br><span class="line"><span class="meta">#</span><span class="bash">关闭</span></span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-<p>跨域</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="Linux环境安装Nodejs"><a href="#Linux环境安装Nodejs" class="headerlink" title="Linux环境安装Nodejs"></a>Linux环境安装Nodejs</h2><ol>
 <li><a class="link"   target="_blank" rel="noopener" href="https://nodejs.org/en/download/" >下载地址<i class="fas fa-external-link-alt"></i></a>，解压</li>
 </ol>
@@ -300,8 +292,54 @@
 <li>检查是否安装成功  node -v</li>
 </ol>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210727230506312.png" alt="image-20210727230506312"></p>
+<ol start="5">
+<li>修改 /etc/profile</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NODE_HOME=/usr/local/node-v14.17.3-linux-x64/</span><br><span class="line">export PATH=$PATH:$NODE_HOME/bin</span><br><span class="line">export NODE_PATH=$NODE_HOME/lib/node_modules</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>通过命令<strong>source /etc/profile</strong>让profile文件立即生效</li>
+</ol>
 <blockquote>
 <p>参考文章：<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/cirry/p/13599472.html" >https://www.cnblogs.com/cirry/p/13599472.html<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="Linux环境安装Elasticsearch-head"><a href="#Linux环境安装Elasticsearch-head" class="headerlink" title="Linux环境安装Elasticsearch-head"></a>Linux环境安装Elasticsearch-head</h2><p>前提环境：Nodejs</p>
+<ol>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/mobz/elasticsearch-head" >下载地址<i class="fas fa-external-link-alt"></i></a>，上传，解压</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip elasticsearch-head-master.zip</span><br><span class="line">#改名</span><br><span class="line">mv elasticsearch-head-master elasticsearch-head</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>进入安装</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;elasticsearch-head</span><br><span class="line"></span><br><span class="line">npm install -g grunt-cli</span><br><span class="line">npm install -g grunt</span><br><span class="line"></span><br><span class="line">#&#x2F;检测是否安装成功</span><br><span class="line">grunt -version</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>修改文件Gruntfile.js，添加hostname</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210728153200645.png" alt="image-20210728153200645"></p>
+<ol start="4">
+<li>跨域配置：</li>
+</ol>
+<p>修改”/usr/local/elasticsearch-7.13.4/config/elasticsearch.yml”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>启动</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210728153008077.png" alt="image-20210728153008077"></p>
+<p>报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Local Npm module &quot;grunt-contrib-copy&quot; not found. Is it installed?</span><br><span class="line">Local Npm module &quot;grunt-contrib-concat&quot; not found. Is it installed?</span><br><span class="line">Local Npm module &quot;grunt-contrib-uglify&quot; not found. Is it installed?</span><br><span class="line">Local Npm module &quot;grunt-css&quot; not found. Is it installed?</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>参考文章：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/u014231523/article/details/96589154" >https://blog.csdn.net/u014231523/article/details/96589154<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h2 id="Linux环境安装Kibana"><a href="#Linux环境安装Kibana" class="headerlink" title="Linux环境安装Kibana"></a>Linux环境安装Kibana</h2><p>前提环境：Nodejs</p>
 <p>Kibana要和Elasticsearch版本一致</p>
@@ -323,7 +361,7 @@
 <ol start="4">
 <li>启动</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su wanglei</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;kibana-7.13.4-linux-x86_64&#x2F;bin&#x2F;</span><br><span class="line">.&#x2F;kibana </span><br><span class="line"></span><br><span class="line">#后台运行</span><br><span class="line">kibana .&#x2F;kibana &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su wanglei</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;kibana-7.13.4-linux-x86_64&#x2F;bin&#x2F;</span><br><span class="line">.&#x2F;kibana </span><br><span class="line"></span><br><span class="line">#后台运行</span><br><span class="line">.&#x2F;kibana &amp;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>参考文章：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35551748/article/details/106960652" >https://blog.csdn.net/qq_35551748/article/details/106960652<i class="fas fa-external-link-alt"></i></a></p>
@@ -558,7 +596,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Elasticsearch"><span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85JDK"><span class="nav-text">Linux环境安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch"><span class="nav-text">Linux环境安装Elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Nodejs"><span class="nav-text">Linux环境安装Nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Kibana"><span class="nav-text">Linux环境安装Kibana</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Elasticsearch"><span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85JDK"><span class="nav-text">Linux环境安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch"><span class="nav-text">Linux环境安装Elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Nodejs"><span class="nav-text">Linux环境安装Nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch-head"><span class="nav-text">Linux环境安装Elasticsearch-head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Kibana"><span class="nav-text">Linux环境安装Kibana</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
