@@ -609,7 +609,7 @@
   </entry>
   <entry>
     <title>JAVA-NIO</title>
-    <url>/2021/05/15/JAVA-NIO/</url>
+    <url>/2021/07/29/JAVA-NIO/</url>
     <content><![CDATA[<h1 id="JAVA-NIO"><a href="#JAVA-NIO" class="headerlink" title="JAVA-NIO"></a>JAVA-NIO</h1><p><a class="link"   href="https://gitee.com/carrywl/java-basic/tree/master/src/main/java/com/wl/nio" >代码仓库<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="IO和NIO区别："><a href="#IO和NIO区别：" class="headerlink" title="IO和NIO区别："></a>IO和NIO区别：</h2><p>第一点：</p>
 <ul>
@@ -696,6 +696,11 @@
 <li>transferFrom</li>
 <li>transferTo</li>
 </ul>
+<h2 id="分散与聚集"><a href="#分散与聚集" class="headerlink" title="分散与聚集"></a>分散与聚集</h2><p>分散（Scatter）读取：将通道中的数据分散到多个缓冲区中</p>
+<p>聚集（Gather）写入：将多个缓冲区的数据聚集到通道中</p>
+<h2 id="字符集Charset"><a href="#字符集Charset" class="headerlink" title="字符集Charset"></a>字符集Charset</h2><p>编码：字符串 -&gt; 字节数组</p>
+<p>解码：字节数组 -&gt; 字符串 </p>
+<p>尚硅谷NIO 8P</p>
 ]]></content>
       <categories>
         <category>JAVA</category>
