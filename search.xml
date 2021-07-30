@@ -700,7 +700,32 @@
 <p>聚集（Gather）写入：将多个缓冲区的数据聚集到通道中</p>
 <h2 id="字符集Charset"><a href="#字符集Charset" class="headerlink" title="字符集Charset"></a>字符集Charset</h2><p>编码：字符串 -&gt; 字节数组</p>
 <p>解码：字节数组 -&gt; 字符串 </p>
-<p>尚硅谷NIO 8P</p>
+<h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>三个核心：</p>
+<ul>
+<li><p>通道(Channel)：负责连接</p>
+<ul>
+<li><p>java.nio.channels.Channel接口：</p>
+<ul>
+<li><p>SelectableChannel</p>
+<ul>
+<li>SocketChannel</li>
+<li>ServerSocketChannel</li>
+<li>DatagramChannel</li>
+</ul>
+<ul>
+<li>Pipe.SinkChannel</li>
+<li>Pipe.SourceChannel</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缓冲区(Buffer)：负责数据的存取</p>
+</li>
+<li><p>选择器(Selector)：是SelectableChannel的多路复用器。用于监控SelectableChannel的IO状况</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -708,6 +733,28 @@
       <tags>
         <tag>JAVA</tag>
         <tag>NIO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA</title>
+    <url>/2021/07/30/IDEA/</url>
+    <content><![CDATA[<h1 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h1><h2 id="问题1：在单元测试不能从控制台输入"><a href="#问题1：在单元测试不能从控制台输入" class="headerlink" title="问题1：在单元测试不能从控制台输入"></a>问题1：在单元测试不能从控制台输入</h2><p>解决：</p>
+<ol>
+<li>打开idea64.exe.vmoptions</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730103334931.png" alt="image-20210730103334931"></p>
+<ol start="2">
+<li>加上**-Deditable.java.test.console=true**</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730103432943.png" alt="image-20210730103432943"></p>
+<p>3.重启idea，成功</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730103509829.png" alt="image-20210730103509829"></p>
+]]></content>
+      <categories>
+        <category>IDEA</category>
+      </categories>
+      <tags>
+        <tag>IDEA</tag>
       </tags>
   </entry>
 </search>
