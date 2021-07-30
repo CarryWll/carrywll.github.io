@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-07-26 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-07-30 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -212,6 +212,31 @@
 
 <h3 id="移动mv"><a href="#移动mv" class="headerlink" title="移动mv"></a>移动mv</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将文件 aaa 更名为 bbb</span></span><br><span class="line">mv aaa bbb </span><br></pre></td></tr></table></figure>
 
+<h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打包解压"><a href="#打包解压" class="headerlink" title="打包解压"></a>打包解压</h2><h3 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">把文件解压到指定的目录下</span></span><br><span class="line">unzip -d /temp test.zip</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有进程</span></span><br><span class="line">ps -aux</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730143136866.png" alt="image-20210730143136866"></p>
+<ul>
+<li>各列含义</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">用户名</span></span><br><span class="line">USER </span><br><span class="line"><span class="meta">#</span><span class="bash">进程ID</span></span><br><span class="line">PID</span><br><span class="line"><span class="meta">#</span><span class="bash">进程占用的CPU百分比</span></span><br><span class="line"><span class="meta">%</span><span class="bash">CPU</span></span><br><span class="line"><span class="meta">#</span><span class="bash">占用内存的百分比</span></span><br><span class="line"><span class="meta">%</span><span class="bash">MEM</span></span><br><span class="line"><span class="meta">#</span><span class="bash">该进程使用的虚拟內存量（KB）</span></span><br><span class="line">VSZ</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程占用的固定內存量（KB）（驻留中页的数量）</span></span><br><span class="line">RSS</span><br><span class="line"><span class="meta">#</span><span class="bash">进程的状态</span></span><br><span class="line">STAT</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程被触发启动时间</span></span><br><span class="line">START</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程实际使用CPU运行的时间</span></span><br><span class="line">TIME</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>STAT状态位常见的状态字符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D:无法中断的休眠状态（通常 IO 的进程）；</span><br><span class="line">R:正在运行可中在队列中可过行的；</span><br><span class="line">S:处于休眠状态；</span><br><span class="line">T:停止或被追踪；</span><br><span class="line">X:死掉的进程 （基本很少见）；</span><br><span class="line">Z:僵尸进程；</span><br><span class="line">&lt;:优先级高的进程</span><br><span class="line">N:优先级较低的进程</span><br><span class="line">L:有些页被锁进内存；</span><br><span class="line">s:进程的领导者（在它之下有子进程）；</span><br><span class="line">l:多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；</span><br><span class="line">\+:位于后台的进程组</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
         </div>
 
@@ -221,9 +246,9 @@
     <ul>
         <li>本文标题：Linux指令</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-07-26 00:00:00</li>
+        <li>创建时间：2021-07-30 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/07/26/Linux指令/
+            本文链接：https://carrywll.github.io/2021/07/30/Linux指令/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -237,29 +262,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/07/27/Elasticsearch/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Elasticsearch</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/07/24/Nginx/"
+                           href="/2021/07/30/IDEA/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Nginx</span>
+                                <span class="post-nav-title-item">IDEA</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -457,7 +467,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
