@@ -425,15 +425,28 @@
   </entry>
   <entry>
     <title>Linux指令</title>
-    <url>/2021/07/30/Linux%E6%8C%87%E4%BB%A4/</url>
+    <url>/2021/08/03/Linux%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="创建文件touch"><a href="#创建文件touch" class="headerlink" title="创建文件touch"></a>创建文件touch</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件</span></span><br><span class="line">touch [文件名]  </span><br><span class="line"><span class="meta">#</span><span class="bash">多个文件创建</span></span><br><span class="line">touch [文件名1] [文件名2]....</span><br></pre></td></tr></table></figure>
 
 <h3 id="移动mv"><a href="#移动mv" class="headerlink" title="移动mv"></a>移动mv</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将文件 aaa 更名为 bbb</span></span><br><span class="line">mv aaa bbb </span><br></pre></td></tr></table></figure>
 
 <h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
 
+<h3 id="文件目录列表ls"><a href="#文件目录列表ls" class="headerlink" title="文件目录列表ls"></a>文件目录列表ls</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看隐藏文件</span><br><span class="line">ls -a</span><br><span class="line">#查看文件和目录的详情列表</span><br><span class="line">ls -l</span><br><span class="line">#将文件依建立时间之先后次序列出</span><br><span class="line">ls -t</span><br><span class="line"></span><br><span class="line">#查看&#x2F;tmp下文件个数</span><br><span class="line">ls -a &#x2F;tmp | wc -l</span><br><span class="line">#查看&#x2F;tmp下文件个数 + 1(总用量)</span><br><span class="line">ls -al &#x2F;tmp | wc -l</span><br><span class="line">#将目录列表存到fileList.txt中</span><br><span class="line">ls -a &#x2F;tmp &gt;fileList.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803143618372.png" alt="image-20210803143618372"></p>
+<ul>
+<li>各列含义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x</span><br><span class="line">第一个字符代表文件类型</span><br><span class="line">“-”:普通文件</span><br><span class="line"></span><br><span class="line">“d”:目录，字母&quot;d&quot;，是dirtectory(目录)的缩写</span><br><span class="line"></span><br><span class="line">“l”:链接文件。类似于windows下的快捷方式</span><br><span class="line"></span><br><span class="line">“b”:块设备文件(block)，一般置于&#x2F;dev目录下，设备文件是普通文件和程序访问硬件设备的入口，是很特殊的文件。没有文件大小，只有一个主设备号和一个辅设备号。一次传输数据为一整块的被称为块设备，如硬盘、光盘等。最小数据传输单位为一个数据块(通常一个数据块的大小为512字节)</span><br><span class="line"></span><br><span class="line">“c”:字符设备文件(character)，一般置于&#x2F;dev目录下，一次传输一个字节的设备被称为字符设备，如键盘、字符终端等，传输数据的最小单位为一个字节。</span><br><span class="line"></span><br><span class="line">“p”:命令管道文件。与shell编程有关的文件。</span><br><span class="line"></span><br><span class="line">“s”:sock文件。与shell编程有关的文件。</span><br><span class="line"></span><br><span class="line">后面9个字母表示该文件或目录的权限位</span><br><span class="line">r表是读 (Read) 、w表示写 (Write) 、x表示执行 (eXecute)</span><br><span class="line">前三个表示文件拥有者的权限，中间三个表示文件所属组拥有的权限，最后三个表示其他用户拥有的权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">第二个字段：</span><br><span class="line">如果一个文件不是目录，此时这一字段表示这个文件所具有的硬链接数。</span><br><span class="line">如果是一个目录，则第2字段表示该目录所含子目录的个数。</span><br><span class="line">如果是一个空目录，这个目录的第二字段就是2，表示该目录下有两个子目录。</span><br><span class="line"></span><br><span class="line">第三个字段：</span><br><span class="line">文件（目录）拥有者</span><br><span class="line"></span><br><span class="line">第四个字段：</span><br><span class="line">文件（目录）拥有者所在的组</span><br><span class="line"></span><br><span class="line">第五个字段：</span><br><span class="line">文件所占用的空间(以字节为单位)</span><br><span class="line"></span><br><span class="line">第六个字段：</span><br><span class="line">文件（目录）最近访问（修改）时间</span><br><span class="line"></span><br><span class="line">第七个字段：</span><br><span class="line">文件名</span><br></pre></td></tr></table></figure>
 
 
+
+
+
+<blockquote>
+<p>参考链接：<a class="link"   href="https://blog.csdn.net/sjzs5590/article/details/8254527" >https://blog.csdn.net/sjzs5590/article/details/8254527<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
 <h2 id="打包解压"><a href="#打包解压" class="headerlink" title="打包解压"></a>打包解压</h2><h3 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">把文件解压到指定的目录下</span></span><br><span class="line">unzip -d /temp test.zip</span><br></pre></td></tr></table></figure>
 
 
@@ -465,7 +478,7 @@
   </entry>
   <entry>
     <title>Elasticsearch</title>
-    <url>/2021/07/27/Elasticsearch/</url>
+    <url>/2021/08/01/Elasticsearch/</url>
     <content><![CDATA[<h1 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h1><h2 id="Linux环境安装JDK"><a href="#Linux环境安装JDK" class="headerlink" title="Linux环境安装JDK"></a>Linux环境安装JDK</h2><ol>
 <li><a class="link"   href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" >下载地址<i class="fas fa-external-link-alt"></i></a>，上传到/usr/local下，解压</li>
 </ol>
@@ -825,7 +838,7 @@
   </entry>
   <entry>
     <title>JAVA-NIO</title>
-    <url>/2021/07/29/JAVA-NIO/</url>
+    <url>/2021/08/03/JAVA-NIO/</url>
     <content><![CDATA[<h1 id="JAVA-NIO"><a href="#JAVA-NIO" class="headerlink" title="JAVA-NIO"></a>JAVA-NIO</h1><p><a class="link"   href="https://gitee.com/carrywl/java-basic/tree/master/src/main/java/com/wl/nio" >代码仓库<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="IO和NIO区别："><a href="#IO和NIO区别：" class="headerlink" title="IO和NIO区别："></a>IO和NIO区别：</h2><p>第一点：</p>
 <ul>
@@ -942,6 +955,9 @@
 <li><p>选择器(Selector)：是SelectableChannel的多路复用器。用于监控SelectableChannel的IO状况</p>
 </li>
 </ul>
+<h2 id="获取路径下的文件列表"><a href="#获取路径下的文件列表" class="headerlink" title="获取路径下的文件列表"></a>获取路径下的文件列表</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFileByPath</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	String folder = <span class="string">&quot;F:\\ideaWorkSpace&quot;</span>;</span><br><span class="line">    Path path = Paths.get(folder);</span><br><span class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">    DirectoryStream&lt;Path&gt; dirStream = Files.newDirectoryStream(path);</span><br><span class="line">    <span class="keyword">for</span> (Path processPath : dirStream) &#123;</span><br><span class="line">        File file = processPath.toFile();</span><br><span class="line">        System.out.println(<span class="string">&quot;文件最后修改时间:&quot;</span> + sdf.format(file.lastModified()));</span><br><span class="line">        System.out.println(<span class="string">&quot;文件名:&quot;</span> + file.getName());</span><br><span class="line">     &#125;</span><br><span class="line">     dirStream.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803220727621.png" alt="image-20210803220727621"></p>
 ]]></content>
       <categories>
         <category>JAVA</category>
