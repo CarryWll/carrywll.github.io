@@ -9,7 +9,7 @@
     
     <title>
         
-            Linux指令 |
+            Maven |
         
         Carry
     </title>
@@ -147,7 +147,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Linux指令</span>
+            <span class="title-hover-animation">Maven</span>
         </div>
 
         
@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-03 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-04 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -173,7 +173,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/Linux/">Linux</a>&nbsp;
+                        <a href="/categories/Maven/">Maven</a>&nbsp;
                     </li>
                 
             </ul>
@@ -185,7 +185,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                        <a href="/tags/Maven/">Maven</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,48 +208,32 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="创建文件touch"><a href="#创建文件touch" class="headerlink" title="创建文件touch"></a>创建文件touch</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件</span></span><br><span class="line">touch [文件名]  </span><br><span class="line"><span class="meta">#</span><span class="bash">多个文件创建</span></span><br><span class="line">touch [文件名1] [文件名2]....</span><br></pre></td></tr></table></figure>
+            <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="Linux环境安装"><a href="#Linux环境安装" class="headerlink" title="Linux环境安装"></a>Linux环境安装</h2><p><a class="link"   target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi#" >下载地址<i class="fas fa-external-link-alt"></i></a></p>
+<ol>
+<li>上传/usr./local，解压</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf apache-maven-3.8.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
 
-<h3 id="移动mv"><a href="#移动mv" class="headerlink" title="移动mv"></a>移动mv</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将文件 aaa 更名为 bbb</span></span><br><span class="line">mv aaa bbb </span><br></pre></td></tr></table></figure>
-
-<h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
-
-<h3 id="文件目录列表ls"><a href="#文件目录列表ls" class="headerlink" title="文件目录列表ls"></a>文件目录列表ls</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看隐藏文件</span><br><span class="line">ls -a</span><br><span class="line">#查看文件和目录的详情列表</span><br><span class="line">ls -l</span><br><span class="line">#将文件依建立时间之先后次序列出</span><br><span class="line">ls -t</span><br><span class="line"></span><br><span class="line">#查看&#x2F;tmp下文件个数</span><br><span class="line">ls -a &#x2F;tmp | wc -l</span><br><span class="line">#查看&#x2F;tmp下文件个数 + 1(总用量)</span><br><span class="line">ls -al &#x2F;tmp | wc -l</span><br><span class="line">#将目录列表存到fileList.txt中</span><br><span class="line">ls -a &#x2F;tmp &gt;fileList.txt</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803143618372.png" alt="image-20210803143618372"></p>
-<ul>
-<li>各列含义</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x</span><br><span class="line">第一个字符代表文件类型</span><br><span class="line">“-”:普通文件</span><br><span class="line"></span><br><span class="line">“d”:目录，字母&quot;d&quot;，是dirtectory(目录)的缩写</span><br><span class="line"></span><br><span class="line">“l”:链接文件。类似于windows下的快捷方式</span><br><span class="line"></span><br><span class="line">“b”:块设备文件(block)，一般置于&#x2F;dev目录下，设备文件是普通文件和程序访问硬件设备的入口，是很特殊的文件。没有文件大小，只有一个主设备号和一个辅设备号。一次传输数据为一整块的被称为块设备，如硬盘、光盘等。最小数据传输单位为一个数据块(通常一个数据块的大小为512字节)</span><br><span class="line"></span><br><span class="line">“c”:字符设备文件(character)，一般置于&#x2F;dev目录下，一次传输一个字节的设备被称为字符设备，如键盘、字符终端等，传输数据的最小单位为一个字节。</span><br><span class="line"></span><br><span class="line">“p”:命令管道文件。与shell编程有关的文件。</span><br><span class="line"></span><br><span class="line">“s”:sock文件。与shell编程有关的文件。</span><br><span class="line"></span><br><span class="line">后面9个字母表示该文件或目录的权限位</span><br><span class="line">r表是读 (Read) 、w表示写 (Write) 、x表示执行 (eXecute)</span><br><span class="line">前三个表示文件拥有者的权限，中间三个表示文件所属组拥有的权限，最后三个表示其他用户拥有的权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">第二个字段：</span><br><span class="line">如果一个文件不是目录，此时这一字段表示这个文件所具有的硬链接数。</span><br><span class="line">如果是一个目录，则第2字段表示该目录所含子目录的个数。</span><br><span class="line">如果是一个空目录，这个目录的第二字段就是2，表示该目录下有两个子目录。</span><br><span class="line"></span><br><span class="line">第三个字段：</span><br><span class="line">文件（目录）拥有者</span><br><span class="line"></span><br><span class="line">第四个字段：</span><br><span class="line">文件（目录）拥有者所在的组</span><br><span class="line"></span><br><span class="line">第五个字段：</span><br><span class="line">文件所占用的空间(以字节为单位)</span><br><span class="line"></span><br><span class="line">第六个字段：</span><br><span class="line">文件（目录）最近访问（修改）时间</span><br><span class="line"></span><br><span class="line">第七个字段：</span><br><span class="line">文件名</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>配置环境变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
 
 
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-maven-3.8.1</span><br><span class="line">export PATH&#x3D;$MAVEN_HOME&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li>生效</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>参考链接：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/sjzs5590/article/details/8254527" >https://blog.csdn.net/sjzs5590/article/details/8254527<i class="fas fa-external-link-alt"></i></a></p>
-</blockquote>
-<h2 id="打包解压"><a href="#打包解压" class="headerlink" title="打包解压"></a>打包解压</h2><h3 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">把文件解压到指定的目录下</span></span><br><span class="line">unzip -d /temp test.zip</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>查看版本</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有进程</span></span><br><span class="line">ps -aux</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730143136866.png" alt="image-20210730143136866"></p>
-<ul>
-<li>各列含义</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">用户名</span></span><br><span class="line">USER </span><br><span class="line"><span class="meta">#</span><span class="bash">进程ID</span></span><br><span class="line">PID</span><br><span class="line"><span class="meta">#</span><span class="bash">进程占用的CPU百分比</span></span><br><span class="line"><span class="meta">%</span><span class="bash">CPU</span></span><br><span class="line"><span class="meta">#</span><span class="bash">占用内存的百分比</span></span><br><span class="line"><span class="meta">%</span><span class="bash">MEM</span></span><br><span class="line"><span class="meta">#</span><span class="bash">该进程使用的虚拟內存量（KB）</span></span><br><span class="line">VSZ</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程占用的固定內存量（KB）（驻留中页的数量）</span></span><br><span class="line">RSS</span><br><span class="line"><span class="meta">#</span><span class="bash">进程的状态</span></span><br><span class="line">STAT</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程被触发启动时间</span></span><br><span class="line">START</span><br><span class="line"><span class="meta">#</span><span class="bash">该进程实际使用CPU运行的时间</span></span><br><span class="line">TIME</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>STAT状态位常见的状态字符</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D:无法中断的休眠状态（通常 IO 的进程）；</span><br><span class="line">R:正在运行可中在队列中可过行的；</span><br><span class="line">S:处于休眠状态；</span><br><span class="line">T:停止或被追踪；</span><br><span class="line">X:死掉的进程 （基本很少见）；</span><br><span class="line">Z:僵尸进程；</span><br><span class="line">&lt;:优先级高的进程</span><br><span class="line">N:优先级较低的进程</span><br><span class="line">L:有些页被锁进内存；</span><br><span class="line">s:进程的领导者（在它之下有子进程）；</span><br><span class="line">l:多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；</span><br><span class="line">\+:位于后台的进程组</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210804095901423.png" alt="image-20210804095901423"></p>
 
         </div>
 
@@ -257,11 +241,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：Linux指令</li>
+        <li>本文标题：Maven</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-03 00:00:00</li>
+        <li>创建时间：2021-08-04 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/08/03/Linux指令/
+            本文链接：https://carrywll.github.io/2021/08/04/Maven/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -274,6 +258,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/08/04/Linux%E6%8C%87%E4%BB%A4/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Linux指令</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -480,7 +479,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8ls"><span class="nav-text">文件目录列表ls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-text">Linux环境安装</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

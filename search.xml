@@ -425,10 +425,16 @@
   </entry>
   <entry>
     <title>Linux指令</title>
-    <url>/2021/08/03/Linux%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="创建文件touch"><a href="#创建文件touch" class="headerlink" title="创建文件touch"></a>创建文件touch</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件</span></span><br><span class="line">touch [文件名]  </span><br><span class="line"><span class="meta">#</span><span class="bash">多个文件创建</span></span><br><span class="line">touch [文件名1] [文件名2]....</span><br></pre></td></tr></table></figure>
+    <url>/2021/08/04/Linux%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="文件查看cat"><a href="#文件查看cat" class="headerlink" title="文件查看cat"></a>文件查看cat</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看曾经的命令操作痕迹</span><br><span class="line">cat ~&#x2F;.bash_history</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找find"><a href="#查找find" class="headerlink" title="查找find"></a>查找find</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查找所有被修改超过50天以及少于100天的文件</span><br><span class="line">find &#x2F; -mtime +50 -mtime -100</span><br><span class="line"></span><br><span class="line">#查找24小时内被修改的JSP文件</span><br><span class="line">find &#x2F; -mtime 0 -name &quot;*.jsp&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文件touch"><a href="#创建文件touch" class="headerlink" title="创建文件touch"></a>创建文件touch</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件</span></span><br><span class="line">touch [文件名]  </span><br><span class="line"><span class="meta">#</span><span class="bash">多个文件创建</span></span><br><span class="line">touch [文件名1] [文件名2]....</span><br></pre></td></tr></table></figure>
 
 <h3 id="移动mv"><a href="#移动mv" class="headerlink" title="移动mv"></a>移动mv</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将文件 aaa 更名为 bbb</span></span><br><span class="line">mv aaa bbb </span><br></pre></td></tr></table></figure>
+
+<h3 id="删除rm"><a href="#删除rm" class="headerlink" title="删除rm"></a>删除rm</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#删除file1文件</span><br><span class="line">rm -f file1 </span><br><span class="line">#删除dir1目录</span><br><span class="line">rmdir dir1</span><br><span class="line">#删除dir1目录和其内容</span><br><span class="line">rm -rf dir1</span><br></pre></td></tr></table></figure>
 
 <h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
 
@@ -987,6 +993,43 @@
       </categories>
       <tags>
         <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven</title>
+    <url>/2021/08/04/Maven/</url>
+    <content><![CDATA[<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="Linux环境安装"><a href="#Linux环境安装" class="headerlink" title="Linux环境安装"></a>Linux环境安装</h2><p><a class="link"   href="http://maven.apache.org/download.cgi#" >下载地址<i class="fas fa-external-link-alt"></i></a></p>
+<ol>
+<li>上传/usr./local，解压</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -zvxf apache-maven-3.8.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置环境变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export MAVEN_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-maven-3.8.1</span><br><span class="line">export PATH&#x3D;$MAVEN_HOME&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>生效</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>查看版本</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210804095901423.png" alt="image-20210804095901423"></p>
+]]></content>
+      <categories>
+        <category>Maven</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
       </tags>
   </entry>
 </search>
