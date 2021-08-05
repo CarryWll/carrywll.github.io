@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-01 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-05 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -434,7 +434,7 @@
 </tr>
 <tr>
 <td>GET</td>
-<td>llocalhost:9200/索引名称/类型名称/文档ID</td>
+<td>localhost:9200/索引名称/类型名称/文档ID</td>
 <td>查询文档通过文档ID</td>
 </tr>
 <tr>
@@ -557,6 +557,25 @@
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210801171600828.png" alt="image-20210801171600828"></p>
 <h2 id="Spring-Boot集成ES"><a href="#Spring-Boot集成ES" class="headerlink" title="Spring Boot集成ES"></a>Spring Boot集成ES</h2><p><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/carrywl/elastic-search-api" >gitee地址<i class="fas fa-external-link-alt"></i></a></p>
+<p>推荐方式：自动整合</p>
+<ol>
+<li>jar包，版本要和elasticsearch版本一致</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.elasticsearch.client&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;7.13.4&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.elasticsearch&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;elasticsearch&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;7.13.4&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.elasticsearch.client&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;elasticsearch-rest-client&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;7.13.4&lt;&#x2F;version&gt;</span><br><span class="line">	&lt;exclusions&gt;</span><br><span class="line">		&lt;exclusion&gt;</span><br><span class="line">			&lt;groupId&gt;commons-logging&lt;&#x2F;groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;commons-logging&lt;&#x2F;artifactId&gt;</span><br><span class="line">		&lt;&#x2F;exclusion&gt;</span><br><span class="line">	&lt;&#x2F;exclusions&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置application.properties</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#springboot整合es</span><br><span class="line">spring.elasticsearch.rest.uris[0]&#x3D;http:&#x2F;&#x2F;192.168.84.138:9200</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>测试</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestElasticsearchAutoConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestHighLevelClient restHighLevelClient;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;restHighLevelClient = &quot;</span> + restHighLevelClient);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>爬取资源tika</p>
 
         </div>
 
@@ -566,9 +585,9 @@
     <ul>
         <li>本文标题：Elasticsearch</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-01 00:00:00</li>
+        <li>创建时间：2021-08-05 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/08/01/Elasticsearch/
+            本文链接：https://carrywll.github.io/2021/08/05/Elasticsearch/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -582,29 +601,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/03/JAVA-NIO/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">JAVA-NIO</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/07/30/IDEA/"
+                           href="/2021/08/04/Java%E5%9F%BA%E7%A1%80/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">IDEA</span>
+                                <span class="post-nav-title-item">Java基础</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -802,7 +806,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Elasticsearch"><span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85JDK"><span class="nav-text">Linux环境安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch"><span class="nav-text">Linux环境安装Elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Nodejs"><span class="nav-text">Linux环境安装Nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch-head"><span class="nav-text">Linux环境安装Elasticsearch-head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Kibana"><span class="nav-text">Linux环境安装Kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ik%E5%88%86%E8%AF%8D%E5%99%A8"><span class="nav-text">ik分词器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rest%E9%A3%8E%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="nav-text">Rest风格说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B4%A2%E5%BC%95"><span class="nav-text">创建一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="nav-text">指定类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-text">获取索引基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="nav-text">删除索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">文档基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AEPUT"><span class="nav-text">更新数据PUT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AEPOST"><span class="nav-text">更新数据POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2"><span class="nav-text">复杂查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%BB%93%E6%9E%9C%E8%BF%87%E6%BB%A4"><span class="nav-text">1. 结果过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8E%92%E5%BA%8F"><span class="nav-text">2. 排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-text">3. 分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">4. 多条件查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%B2%BE%E7%A1%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">5. 精确查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%B2%BE%E7%A1%AE%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="nav-text">6.  精确查询多个值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E9%AB%98%E4%BA%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">7. 高亮查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot%E9%9B%86%E6%88%90ES"><span class="nav-text">Spring Boot集成ES</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Elasticsearch"><span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85JDK"><span class="nav-text">Linux环境安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch"><span class="nav-text">Linux环境安装Elasticsearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Nodejs"><span class="nav-text">Linux环境安装Nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Elasticsearch-head"><span class="nav-text">Linux环境安装Elasticsearch-head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85Kibana"><span class="nav-text">Linux环境安装Kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ik%E5%88%86%E8%AF%8D%E5%99%A8"><span class="nav-text">ik分词器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rest%E9%A3%8E%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="nav-text">Rest风格说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B4%A2%E5%BC%95"><span class="nav-text">创建一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="nav-text">指定类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B4%A2%E5%BC%95%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-text">获取索引基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="nav-text">删除索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">文档基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AEPUT"><span class="nav-text">更新数据PUT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AEPOST"><span class="nav-text">更新数据POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2"><span class="nav-text">复杂查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%BB%93%E6%9E%9C%E8%BF%87%E6%BB%A4"><span class="nav-text">1. 结果过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8E%92%E5%BA%8F"><span class="nav-text">2. 排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-text">3. 分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">4. 多条件查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%B2%BE%E7%A1%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">5. 精确查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%B2%BE%E7%A1%AE%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="nav-text">6.  精确查询多个值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E9%AB%98%E4%BA%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">7. 高亮查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot%E9%9B%86%E6%88%90ES"><span class="nav-text">Spring Boot集成ES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-text">实战</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
