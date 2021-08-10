@@ -20,7 +20,7 @@
   </entry>
   <entry>
     <title>Gitee+PicGo图床搭建</title>
-    <url>/2021/04/24/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
+    <url>/2021/08/10/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="Gitee-PicGo图床搭建"><a href="#Gitee-PicGo图床搭建" class="headerlink" title="Gitee+PicGo图床搭建"></a>Gitee+PicGo图床搭建</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ol>
 <li><a class="link"   href="https://github.com/Molunerfinn/PicGo/releases" >PicGo<i class="fas fa-external-link-alt"></i></a>(请确保你安装了 Node.js， 并且版本 &gt;= 8)</li>
 <li><a class="link"   href="https://www.typora.io/" >Typora<i class="fas fa-external-link-alt"></i></a></li>
@@ -88,11 +88,31 @@
 </ol>
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210424003656340.png" alt="image-20210424003656340"></p>
 <p>截图粘贴到Typora时，图片会被默认存到C盘，可以定时清理：C:\Users\你电脑的用户名\AppData\Roaming\Typora\typora-user-images</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>设置好粘贴图片自动上传，报错，不能上传到图床</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810163655125.png" alt="image-20210810163655125"></p>
+<ol>
+<li>文件-&gt;偏好设置-&gt;图像-&gt;验证图片上传选项</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810163801886.png" alt="image-20210810163801886"></p>
+<ol start="2">
+<li>查看端口</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810163915465.png" alt="image-20210810163915465"></p>
+<ol start="3">
+<li>打开配置文件</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810164017648.png" alt="image-20210810164017648"></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810164052007.png" alt="image-20210810164052007"></p>
+<ol start="4">
+<li>设置Server</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810164128952.png" alt="image-20210810164128952"></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810164150659.png" alt="image-20210810164150659"></p>
+<ol start="5">
+<li>设置Server 、文件配置、验证上传图片三个地方的端口要保持一致</li>
+</ol>
 <blockquote>
-<p>参考文章</p>
-<ul>
-<li><a class="link"   href="https://blog.csdn.net/disILLL/article/details/103962241" >https://blog.csdn.net/disILLL/article/details/103962241<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
+<p>参考文章：<a class="link"   href="https://blog.csdn.net/disILLL/article/details/103962241" >https://blog.csdn.net/disILLL/article/details/103962241<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -169,8 +189,6 @@
 <h2 id="IO操作"><a href="#IO操作" class="headerlink" title="IO操作"></a>IO操作</h2><h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOperationHistoryByFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">    BufferedReader bufferedReader = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fileReader = <span class="keyword">new</span> FileReader(<span class="string">&quot;history.log&quot;</span>);</span><br><span class="line">        bufferedReader = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">        String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>( (str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (bufferedReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            bufferedReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (fileReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            fileReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210804193423354.png" alt="image-20210804193423354"></p>
-<h2 id="java-lang-Process"><a href="#java-lang-Process" class="headerlink" title="java.lang.Process"></a>java.lang.Process</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Source code recreated from a .class file by IntelliJ IDEA</span></span><br><span class="line"><span class="comment">// (powered by FernFlower decompiler)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> oshi.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> oshi.PlatformEnum;</span><br><span class="line"><span class="keyword">import</span> oshi.SystemInfo;</span><br><span class="line"><span class="keyword">import</span> oshi.annotation.concurrent.ThreadSafe;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ThreadSafe</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ExecutingCommand</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(ExecutingCommand.class);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] DEFAULT_ENV = getDefaultEnv();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExecutingCommand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String[] getDefaultEnv() &#123;</span><br><span class="line">        PlatformEnum platform = SystemInfo.getCurrentPlatform();</span><br><span class="line">        <span class="keyword">if</span> (platform == PlatformEnum.WINDOWS) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> String[]&#123;<span class="string">&quot;LANGUAGE=C&quot;</span>&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> platform != PlatformEnum.UNKNOWN ? <span class="keyword">new</span> String[]&#123;<span class="string">&quot;LC_ALL=C&quot;</span>&#125; : <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">runNative</span><span class="params">(String cmdToRun)</span> </span>&#123;</span><br><span class="line">        String[] cmd = cmdToRun.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> runNative(cmd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">runNative</span><span class="params">(String[] cmdToRunWithArgs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> runNative(cmdToRunWithArgs, DEFAULT_ENV);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">runNative</span><span class="params">(String[] cmdToRunWithArgs, String[] envp)</span> </span>&#123;</span><br><span class="line">        Process p = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//执行命令</span></span><br><span class="line">            p = Runtime.getRuntime().exec(cmdToRunWithArgs, envp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException | SecurityException var8) &#123;</span><br><span class="line">            LOG.trace(<span class="string">&quot;Couldn&#x27;t run command &#123;&#125;: &#123;&#125;&quot;</span>, Arrays.toString(cmdToRunWithArgs), var8.getMessage());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ArrayList sa = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(p.getInputStream(), Charset.defaultCharset()));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                String line;</span><br><span class="line">                <span class="keyword">while</span>((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    sa.add(line);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                p.waitFor();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable var9) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    reader.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable var7) &#123;</span><br><span class="line">                    var9.addSuppressed(var7);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">throw</span> var9;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            reader.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException var10) &#123;</span><br><span class="line">            LOG.trace(<span class="string">&quot;Problem reading output from &#123;&#125;: &#123;&#125;&quot;</span>, Arrays.toString(cmdToRunWithArgs), var10.getMessage());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList(<span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException var11) &#123;</span><br><span class="line">            LOG.trace(<span class="string">&quot;Interrupted while reading output from &#123;&#125;: &#123;&#125;&quot;</span>, Arrays.toString(cmdToRunWithArgs), var11.getMessage());</span><br><span class="line">            Thread.currentThread().interrupt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sa;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getFirstAnswer</span><span class="params">(String cmd2launch)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getAnswerAt(cmd2launch, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAnswerAt</span><span class="params">(String cmd2launch, <span class="keyword">int</span> answerIdx)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sa = runNative(cmd2launch);</span><br><span class="line">        <span class="keyword">return</span> answerIdx &gt;= <span class="number">0</span> &amp;&amp; answerIdx &lt; sa.size() ? (String)sa.get(answerIdx) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>JAVA</category>
@@ -430,7 +448,7 @@
   </entry>
   <entry>
     <title>Linux指令</title>
-    <url>/2021/08/04/Linux%E6%8C%87%E4%BB%A4/</url>
+    <url>/2021/08/09/Linux%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="文件查看cat"><a href="#文件查看cat" class="headerlink" title="文件查看cat"></a>文件查看cat</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看曾经的命令操作痕迹</span><br><span class="line">cat ~&#x2F;.bash_history</span><br></pre></td></tr></table></figure>
 
 <h3 id="查找find"><a href="#查找find" class="headerlink" title="查找find"></a>查找find</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查找所有被修改超过50天以及少于100天的文件</span><br><span class="line">find &#x2F; -mtime +50 -mtime -100</span><br><span class="line"></span><br><span class="line">#查找24小时内被修改的JSP文件</span><br><span class="line">find &#x2F; -mtime 0 -name &quot;*.jsp&quot;</span><br></pre></td></tr></table></figure>
@@ -477,7 +495,25 @@
 
 
 
+<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><h3 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#定时任务重启 默认是开启的 </span><br><span class="line">service crond restart</span><br></pre></td></tr></table></figure>
 
+
+
+<h4 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">增加定时任务，会打开一个任务文件，将需要添加的任务添加到任务文件中</span></span><br><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">时间格式</span></span><br><span class="line">f1 f2 f3 f4 f5 program</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li> f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程序。</li>
+<li>当 f1 为 * 时表示每分钟都要执行 program，f2 为 * 时表示每小时都要执行程序，依次类推</li>
+<li>当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，f2 为 a-b 时表示从第 a 到第 b 小时都要执行，依次类推</li>
+<li>当 f1 为 */n 时表示每 n 分钟个时间间隔执行一次，f2 为 */n 表示每 n 小时个时间间隔执行一次，依次类推</li>
+<li>当 f1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，f2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，依次类推</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 <span class="built_in">echo</span> <span class="string">&quot;haha&quot;</span></span></span><br><span class="line">20 0-23/2 * * * echo &quot;haha&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">日志</span></span><br><span class="line">tail -f /var/log/cron</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件</span></span><br><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1083,6 +1119,59 @@
       </categories>
       <tags>
         <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Optional in Java</title>
+    <url>/2021/08/10/Optional-in-Java/</url>
+    <content><![CDATA[<h1 id="Optional-in-Java"><a href="#Optional-in-Java" class="headerlink" title="Optional in Java"></a>Optional in Java</h1><p>这个类型的对象可能包含值，也可能为空。</p>
+<p>of()</p>
+<p>如果你把 null 值作为参数传递进去，of() 方法会抛出 NullPointerException</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 返回具有指定当前非空值的 &#123;<span class="doctag">@code</span> Optional&#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt; the class of the value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value the value to be present, which must be non-null</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Optional&#125; with the value present</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if value is null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">of</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Optional&lt;&gt;(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ofNullable()</p>
+<p>如果对象即可能是 null 也可能是非 null，你就应该使用 ofNullable()</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns an &#123;<span class="doctag">@code</span> Optional&#125; describing the specified value, if non-null,</span></span><br><span class="line"><span class="comment"> * otherwise returns an empty &#123;<span class="doctag">@code</span> Optional&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt; the class of the value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value the possibly-null value to describe</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Optional&#125; with a present value if the specified value</span></span><br><span class="line"><span class="comment"> * is non-null, otherwise an empty &#123;<span class="doctag">@code</span> Optional&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">ofNullable</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="keyword">null</span> ? empty() : of(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>get()</p>
+<p>可以使用get从 Optional 实例中取回实际值对象</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenCreateOfNullableOptional_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String name = <span class="string">&quot;John&quot;</span>;</span><br><span class="line">    Optional&lt;String&gt; opt = Optional.ofNullable(name);</span><br><span class="line">    System.out.println(<span class="string">&quot;name = &quot;</span> + name);</span><br><span class="line">    assertEquals(<span class="string">&quot;John&quot;</span>, opt.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法会在值为 null 的时候抛出异常。要避免异常，要使用<strong>isPresent</strong>验证是否有值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenCheckIfPresent_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    Optional&lt;User&gt; opt = Optional.ofNullable(user);</span><br><span class="line">    assertTrue(opt.isPresent());</span><br><span class="line">    assertEquals(user.getAge(), opt.get().getAge());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以使用ifPresent</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">opt.ifPresent( u -&gt; assertEquals(user.getAge(), u.getAge()));</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="返回默认值"><a href="#返回默认值" class="headerlink" title="返回默认值"></a><strong>返回默认值</strong></h2><p>orElse()</p>
+<p>如果有值则返回该值，如果对象的初始值不是 null，那么默认值会被忽略</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenEmptyValue_thenReturnDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">null</span>;</span><br><span class="line">    User user2 = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    User result = Optional.ofNullable(user).orElse(user2);</span><br><span class="line">    assertEquals(user2.getAge(), result.getAge());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 user 对象是空的，所以返回了作为默认值的 user2。</p>
+<p>orElseGet()</p>
+<p>如果有值则返回该值，否则调用 <code>other</code>并返回该调用的结果。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User result &#x3D; Optional.ofNullable(user).orElseGet( () -&gt; user2);</span><br></pre></td></tr></table></figure>
+
+<p>orElseGet()和orElse()不同：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPresentValue_whenCompare_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    logger.info(<span class="string">&quot;Using orElse&quot;</span>);</span><br><span class="line">    User result = Optional.ofNullable(user).orElse(createNewUser());</span><br><span class="line">    logger.info(<span class="string">&quot;Using orElseGet&quot;</span>);</span><br><span class="line">    User result2 = Optional.ofNullable(user).orElseGet(() -&gt; createNewUser());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> User <span class="title">createNewUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    logger.debug(<span class="string">&quot;Creating New User&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> User(<span class="string">&quot;duxiaozhu&quot;</span>, <span class="number">23</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>两个 Optional  对象都包含非空值，两个方法都会返回对应的非空值。不过，orElse() 方法仍然创建了 User对象。与之相反，orElseGet() 方法不创建 User对象。</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810163511222.png" alt="image-20210810163511222"></p>
+<h2 id="返回异常"><a href="#返回异常" class="headerlink" title="返回异常"></a>返回异常</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test(expected = IllegalArgumentException.class)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenThrowException_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">null</span>;</span><br><span class="line">    User result = Optional.ofNullable(user)</span><br><span class="line">            .orElseThrow(() -&gt; <span class="keyword">new</span> IllegalArgumentException());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 user 值为 null，会抛出 IllegalArgumentException</p>
+<blockquote>
+<p>参考链接：<a class="link"   href="https://www.oschina.net/translate/understanding-accepting-and-leveraging-optional-in" >https://www.oschina.net/translate/understanding-accepting-and-leveraging-optional-in<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>空指针异常</tag>
       </tags>
   </entry>
 </search>

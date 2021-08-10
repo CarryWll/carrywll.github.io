@@ -9,7 +9,7 @@
     
     <title>
         
-            JAVA-NIO |
+            Optional in Java |
         
         Carry
     </title>
@@ -147,7 +147,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">JAVA-NIO</span>
+            <span class="title-hover-animation">Optional in Java</span>
         </div>
 
         
@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-03 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-10 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -189,7 +189,7 @@
                     </li>
                 
                     <li>
-                        | <a href="/tags/NIO/">NIO</a>&nbsp;
+                        | <a href="/tags/%E7%A9%BA%E6%8C%87%E9%92%88%E5%BC%82%E5%B8%B8/">空指针异常</a>&nbsp;
                     </li>
                 
             </ul>
@@ -212,125 +212,47 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="JAVA-NIO"><a href="#JAVA-NIO" class="headerlink" title="JAVA-NIO"></a>JAVA-NIO</h1><p><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/carrywl/java-basic/tree/master/src/main/java/com/wl/nio" >代码仓库<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="IO和NIO区别："><a href="#IO和NIO区别：" class="headerlink" title="IO和NIO区别："></a>IO和NIO区别：</h2><p>第一点：</p>
-<ul>
-<li>IO面向流：单向</li>
-<li>NIO面向缓冲区：双向</li>
-</ul>
-<p>第二点：</p>
-<ul>
-<li>IO是阻塞IO</li>
-<li>NIO是非阻塞IO</li>
-</ul>
-<p>第三点：</p>
-<ul>
-<li>NIO有选择器</li>
-</ul>
-<p>NIO的通道负责传输，缓冲区负责存储</p>
-<h2 id="缓冲区"><a href="#缓冲区" class="headerlink" title="缓冲区"></a>缓冲区</h2><p>一：缓冲区就是数组，用于存储不同类型的数据。</p>
-<p>根据类型不同（boolean除外），提供相应类型的缓冲区</p>
-<ul>
-<li>BytebBuffer</li>
-<li>CharBuffer</li>
-<li>ShortBuffer</li>
-<li>IntBuffer</li>
-<li>LongBuffer</li>
-<li>FloatBuffer</li>
-<li>DoubleBuffer</li>
-</ul>
-<p>一般都通过allocate()获取缓冲区</p>
-<p>二：缓冲区存取数据的两个核心方法：</p>
-<ul>
-<li><p>push:存入数据到缓冲区</p>
-</li>
-<li><p>get:获取的缓冲区的数据</p>
-</li>
-</ul>
-<p>三：缓冲区的四个核心属性：</p>
-<ul>
-<li>capactity:容量，表示缓冲区中最大存储数据的容量，一旦声明就不能改变。</li>
-<li>limit:界限，表示缓冲区可以操作数据的大小。（limit后数据不能进行读写）</li>
-<li>position:位置，表示缓冲区中正在操作数据的位置。</li>
-<li>mark:标记，表示记录当前postion位置，可以通过reset()恢复到mark位置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&lt;&#x3D;mark&lt;&#x3D;position&lt;&#x3D;limit&lt;&#x3D;capacity</span><br></pre></td></tr></table></figure>
+            <h1 id="Optional-in-Java"><a href="#Optional-in-Java" class="headerlink" title="Optional in Java"></a>Optional in Java</h1><p>这个类型的对象可能包含值，也可能为空。</p>
+<p>of()</p>
+<p>如果你把 null 值作为参数传递进去，of() 方法会抛出 NullPointerException</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 返回具有指定当前非空值的 &#123;<span class="doctag">@code</span> Optional&#125;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt; the class of the value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value the value to be present, which must be non-null</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Optional&#125; with the value present</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if value is null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">of</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Optional&lt;&gt;(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="直接缓冲区和非直接缓冲区"><a href="#直接缓冲区和非直接缓冲区" class="headerlink" title="直接缓冲区和非直接缓冲区"></a>直接缓冲区和非直接缓冲区</h3><p>非直接缓冲区：通过allocate()分配的缓冲区，将建立在JVM的内存中</p>
-<p>直接缓冲区：通过allocateDirect()分配直接缓冲区，将建立在物理内存中，可以提高效率，但是消耗资源，有时候不稳定</p>
-<h2 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h2><p>用于源节点与目标节点的连接</p>
-<p>在Java NIO中负责缓冲区数据的传输</p>
-<p>一：通道的主要实现类</p>
-<p>java.nio.channels.Channel接口：</p>
-<ul>
-<li>FileChannel    本地</li>
-<li>SocketChannel    TCP</li>
-<li>ServerSocketChannel     TCP</li>
-<li>DatagramChannel    UDP</li>
-</ul>
-<p>二：获取通道</p>
-<ol>
-<li>Java针对支持通道的类提供了getChannel</li>
-</ol>
-<ul>
-<li><p>本地IO:</p>
-<ul>
-<li><p>FileInputStream/FileOutStream</p>
-</li>
-<li><p>RandomAccessFile</p>
-</li>
-</ul>
-</li>
-<li><p>网络IO:</p>
-<ul>
-<li>Socket</li>
-<li>ServerSocket</li>
-<li>DatagramSocket</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>在jdk7中的NIO.2针对各个通道提供了静态方法open()</li>
-<li>在jdk7中的NIO.2的Files工具类的newByteChannel()</li>
-</ol>
-<p>三：通道之间的数据传输</p>
-<ul>
-<li>transferFrom</li>
-<li>transferTo</li>
-</ul>
-<h2 id="分散与聚集"><a href="#分散与聚集" class="headerlink" title="分散与聚集"></a>分散与聚集</h2><p>分散（Scatter）读取：将通道中的数据分散到多个缓冲区中</p>
-<p>聚集（Gather）写入：将多个缓冲区的数据聚集到通道中</p>
-<h2 id="字符集Charset"><a href="#字符集Charset" class="headerlink" title="字符集Charset"></a>字符集Charset</h2><p>编码：字符串 -&gt; 字节数组</p>
-<p>解码：字节数组 -&gt; 字符串 </p>
-<h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>三个核心：</p>
-<ul>
-<li><p>通道(Channel)：负责连接</p>
-<ul>
-<li><p>java.nio.channels.Channel接口：</p>
-<ul>
-<li><p>SelectableChannel</p>
-<ul>
-<li>SocketChannel</li>
-<li>ServerSocketChannel</li>
-<li>DatagramChannel</li>
-</ul>
-<ul>
-<li>Pipe.SinkChannel</li>
-<li>Pipe.SourceChannel</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>缓冲区(Buffer)：负责数据的存取</p>
-</li>
-<li><p>选择器(Selector)：是SelectableChannel的多路复用器。用于监控SelectableChannel的IO状况</p>
-</li>
-</ul>
-<h2 id="获取路径下的文件列表"><a href="#获取路径下的文件列表" class="headerlink" title="获取路径下的文件列表"></a>获取路径下的文件列表</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFileByPath</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	String folder = <span class="string">&quot;F:\\ideaWorkSpace&quot;</span>;</span><br><span class="line">    Path path = Paths.get(folder);</span><br><span class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">    DirectoryStream&lt;Path&gt; dirStream = Files.newDirectoryStream(path);</span><br><span class="line">    <span class="keyword">for</span> (Path processPath : dirStream) &#123;</span><br><span class="line">        File file = processPath.toFile();</span><br><span class="line">        System.out.println(<span class="string">&quot;文件最后修改时间:&quot;</span> + sdf.format(file.lastModified()));</span><br><span class="line">        System.out.println(<span class="string">&quot;文件名:&quot;</span> + file.getName());</span><br><span class="line">     &#125;</span><br><span class="line">     dirStream.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ofNullable()</p>
+<p>如果对象即可能是 null 也可能是非 null，你就应该使用 ofNullable()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns an &#123;<span class="doctag">@code</span> Optional&#125; describing the specified value, if non-null,</span></span><br><span class="line"><span class="comment"> * otherwise returns an empty &#123;<span class="doctag">@code</span> Optional&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt; the class of the value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value the possibly-null value to describe</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Optional&#125; with a present value if the specified value</span></span><br><span class="line"><span class="comment"> * is non-null, otherwise an empty &#123;<span class="doctag">@code</span> Optional&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">ofNullable</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value == <span class="keyword">null</span> ? empty() : of(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803220727621.png" alt="image-20210803220727621"></p>
+<p>get()</p>
+<p>可以使用get从 Optional 实例中取回实际值对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenCreateOfNullableOptional_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String name = <span class="string">&quot;John&quot;</span>;</span><br><span class="line">    Optional&lt;String&gt; opt = Optional.ofNullable(name);</span><br><span class="line">    System.out.println(<span class="string">&quot;name = &quot;</span> + name);</span><br><span class="line">    assertEquals(<span class="string">&quot;John&quot;</span>, opt.get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法会在值为 null 的时候抛出异常。要避免异常，要使用<strong>isPresent</strong>验证是否有值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenCheckIfPresent_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    Optional&lt;User&gt; opt = Optional.ofNullable(user);</span><br><span class="line">    assertTrue(opt.isPresent());</span><br><span class="line">    assertEquals(user.getAge(), opt.get().getAge());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以使用ifPresent</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opt.ifPresent( u -&gt; assertEquals(user.getAge(), u.getAge()));</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="返回默认值"><a href="#返回默认值" class="headerlink" title="返回默认值"></a><strong>返回默认值</strong></h2><p>orElse()</p>
+<p>如果有值则返回该值，如果对象的初始值不是 null，那么默认值会被忽略</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenEmptyValue_thenReturnDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">null</span>;</span><br><span class="line">    User user2 = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    User result = Optional.ofNullable(user).orElse(user2);</span><br><span class="line">    assertEquals(user2.getAge(), result.getAge());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 user 对象是空的，所以返回了作为默认值的 user2。</p>
+<p>orElseGet()</p>
+<p>如果有值则返回该值，否则调用 <code>other</code>并返回该调用的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User result &#x3D; Optional.ofNullable(user).orElseGet( () -&gt; user2);</span><br></pre></td></tr></table></figure>
+
+<p>orElseGet()和orElse()不同：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPresentValue_whenCompare_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">&quot;wanglei&quot;</span>, <span class="number">23</span>);</span><br><span class="line">    logger.info(<span class="string">&quot;Using orElse&quot;</span>);</span><br><span class="line">    User result = Optional.ofNullable(user).orElse(createNewUser());</span><br><span class="line">    logger.info(<span class="string">&quot;Using orElseGet&quot;</span>);</span><br><span class="line">    User result2 = Optional.ofNullable(user).orElseGet(() -&gt; createNewUser());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> User <span class="title">createNewUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    logger.debug(<span class="string">&quot;Creating New User&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> User(<span class="string">&quot;duxiaozhu&quot;</span>, <span class="number">23</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>两个 Optional  对象都包含非空值，两个方法都会返回对应的非空值。不过，orElse() 方法仍然创建了 User对象。与之相反，orElseGet() 方法不创建 User对象。</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210810163511222.png" alt="image-20210810163511222"></p>
+<h2 id="返回异常"><a href="#返回异常" class="headerlink" title="返回异常"></a>返回异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test(expected = IllegalArgumentException.class)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whenThrowException_thenOk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">null</span>;</span><br><span class="line">    User result = Optional.ofNullable(user)</span><br><span class="line">            .orElseThrow(() -&gt; <span class="keyword">new</span> IllegalArgumentException());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 user 值为 null，会抛出 IllegalArgumentException</p>
+<blockquote>
+<p>参考链接：<a class="link"   target="_blank" rel="noopener" href="https://www.oschina.net/translate/understanding-accepting-and-leveraging-optional-in" >https://www.oschina.net/translate/understanding-accepting-and-leveraging-optional-in<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
 
         </div>
 
@@ -338,11 +260,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：JAVA-NIO</li>
+        <li>本文标题：Optional in Java</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-03 00:00:00</li>
+        <li>创建时间：2021-08-10 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/08/03/JAVA-NIO/
+            本文链接：https://carrywll.github.io/2021/08/10/Optional-in-Java/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -359,13 +281,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/08/04/Java%E5%9F%BA%E7%A1%80/"
+                           href="/2021/08/10/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Java基础</span>
+                                <span class="post-nav-title-item">Gitee+PicGo图床搭建</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -375,10 +297,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/07/30/IDEA/"
+                           href="/2021/08/09/Linux%E6%8C%87%E4%BB%A4/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">IDEA</span>
+                                <span class="post-nav-title-item">Linux指令</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -576,7 +498,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-NIO"><span class="nav-text">JAVA-NIO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E5%92%8CNIO%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">IO和NIO区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-text">缓冲区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA%E5%92%8C%E9%9D%9E%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-text">直接缓冲区和非直接缓冲区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%81%93"><span class="nav-text">通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%95%A3%E4%B8%8E%E8%81%9A%E9%9B%86"><span class="nav-text">分散与聚集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86Charset"><span class="nav-text">字符集Charset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="nav-text">网络通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="nav-text">获取路径下的文件列表</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Optional-in-Java"><span class="nav-text">Optional in Java</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-text">返回默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%BC%82%E5%B8%B8"><span class="nav-text">返回异常</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
