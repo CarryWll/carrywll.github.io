@@ -159,13 +159,13 @@
                     <div class="author">
                         <span class="name">Carry灭霸</span>
                         
-                            <span class="author-label">Lv2</span>
+                            <span class="author-label">Lv3</span>
                         
                     </div>
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-09 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-12 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -208,19 +208,19 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="文件查看cat"><a href="#文件查看cat" class="headerlink" title="文件查看cat"></a>文件查看cat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看曾经的命令操作痕迹</span><br><span class="line">cat ~&#x2F;.bash_history</span><br></pre></td></tr></table></figure>
+            <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><h3 id="文件查看cat"><a href="#文件查看cat" class="headerlink" title="文件查看cat"></a>文件查看cat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看曾经的命令操作痕迹</span></span><br><span class="line">cat ~/.bash_history</span><br></pre></td></tr></table></figure>
 
-<h3 id="查找find"><a href="#查找find" class="headerlink" title="查找find"></a>查找find</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#查找所有被修改超过50天以及少于100天的文件</span><br><span class="line">find &#x2F; -mtime +50 -mtime -100</span><br><span class="line"></span><br><span class="line">#查找24小时内被修改的JSP文件</span><br><span class="line">find &#x2F; -mtime 0 -name &quot;*.jsp&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="查找find"><a href="#查找find" class="headerlink" title="查找find"></a>查找find</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查找所有被修改超过50天以及少于100天的文件</span></span><br><span class="line">find / -mtime +50 -mtime -100</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查找24小时内被修改的JSP文件</span></span><br><span class="line">find / -mtime 0 -name &quot;*.jsp&quot;</span><br></pre></td></tr></table></figure>
 
 <h3 id="创建文件touch"><a href="#创建文件touch" class="headerlink" title="创建文件touch"></a>创建文件touch</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建文件</span></span><br><span class="line">touch [文件名]  </span><br><span class="line"><span class="meta">#</span><span class="bash">多个文件创建</span></span><br><span class="line">touch [文件名1] [文件名2]....</span><br></pre></td></tr></table></figure>
 
 <h3 id="移动mv"><a href="#移动mv" class="headerlink" title="移动mv"></a>移动mv</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">将文件 aaa 更名为 bbb</span></span><br><span class="line">mv aaa bbb </span><br></pre></td></tr></table></figure>
 
-<h3 id="删除rm"><a href="#删除rm" class="headerlink" title="删除rm"></a>删除rm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#删除file1文件</span><br><span class="line">rm -f file1 </span><br><span class="line">#删除dir1目录</span><br><span class="line">rmdir dir1</span><br><span class="line">#删除dir1目录和其内容</span><br><span class="line">rm -rf dir1</span><br></pre></td></tr></table></figure>
+<h3 id="删除rm"><a href="#删除rm" class="headerlink" title="删除rm"></a>删除rm</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">删除file1文件</span></span><br><span class="line">rm -f file1 </span><br><span class="line"><span class="meta">#</span><span class="bash">删除dir1目录</span></span><br><span class="line">rmdir dir1</span><br><span class="line"><span class="meta">#</span><span class="bash">删除dir1目录和其内容</span></span><br><span class="line">rm -rf dir1</span><br></pre></td></tr></table></figure>
 
-<h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名</span><br></pre></td></tr></table></figure>
+<h3 id="创建目录mkdir"><a href="#创建目录mkdir" class="headerlink" title="创建目录mkdir"></a>创建目录mkdir</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名</span><br><span class="line"><span class="meta">#</span><span class="bash">创建目录树</span></span><br><span class="line">mkdir -p /tmp/dir1/dir2</span><br></pre></td></tr></table></figure>
 
-<h3 id="文件目录列表ls"><a href="#文件目录列表ls" class="headerlink" title="文件目录列表ls"></a>文件目录列表ls</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#查看隐藏文件</span><br><span class="line">ls -a</span><br><span class="line">#查看文件和目录的详情列表</span><br><span class="line">ls -l</span><br><span class="line">#将文件依建立时间之先后次序列出</span><br><span class="line">ls -t</span><br><span class="line"></span><br><span class="line">#查看&#x2F;tmp下文件个数</span><br><span class="line">ls -a &#x2F;tmp | wc -l</span><br><span class="line">#查看&#x2F;tmp下文件个数 + 1(总用量)</span><br><span class="line">ls -al &#x2F;tmp | wc -l</span><br><span class="line">#将目录列表存到fileList.txt中</span><br><span class="line">ls -a &#x2F;tmp &gt;fileList.txt</span><br></pre></td></tr></table></figure>
+<h3 id="文件目录列表ls"><a href="#文件目录列表ls" class="headerlink" title="文件目录列表ls"></a>文件目录列表ls</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看隐藏文件</span></span><br><span class="line">ls -a</span><br><span class="line"><span class="meta">#</span><span class="bash">查看文件和目录的详情列表</span></span><br><span class="line">ls -l</span><br><span class="line"><span class="meta">#</span><span class="bash">将文件依建立时间之先后次序列出</span></span><br><span class="line">ls -t</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看/tmp下文件个数</span></span><br><span class="line">ls -a /tmp | wc -l</span><br><span class="line"><span class="meta">#</span><span class="bash">查看/tmp下文件个数 + 1(总用量)</span></span><br><span class="line">ls -al /tmp | wc -l</span><br><span class="line"><span class="meta">#</span><span class="bash">将目录列表存到fileList.txt中</span></span><br><span class="line">ls -a /tmp &gt;fileList.txt</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803143618372.png" alt="image-20210803143618372"></p>
 <ul>
@@ -283,9 +283,9 @@
     <ul>
         <li>本文标题：Linux指令</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-09 00:00:00</li>
+        <li>创建时间：2021-08-12 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/08/09/Linux指令/
+            本文链接：https://carrywll.github.io/2021/08/12/Linux指令/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -302,13 +302,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/08/10/Optional-in-Java/"
+                           href="/2021/08/13/Docker/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Optional in Java</span>
+                                <span class="post-nav-title-item">Docker</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -318,10 +318,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/08/08/Elasticsearch/"
+                           href="/2021/08/12/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Elasticsearch</span>
+                                <span class="post-nav-title-item">谷粒商城</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

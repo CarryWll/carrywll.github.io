@@ -9,7 +9,7 @@
     
     <title>
         
-            Docker |
+            谷粒商城 |
         
         Carry
     </title>
@@ -147,7 +147,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Docker</span>
+            <span class="title-hover-animation">谷粒商城</span>
         </div>
 
         
@@ -159,13 +159,13 @@
                     <div class="author">
                         <span class="name">Carry灭霸</span>
                         
-                            <span class="author-label">Lv2</span>
+                            <span class="author-label">Lv3</span>
                         
                     </div>
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-05-15 23:55:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-12 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -173,7 +173,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/Docker/">Docker</a>&nbsp;
+                        <a href="/categories/JAVA/">JAVA</a>&nbsp;
                     </li>
                 
             </ul>
@@ -185,7 +185,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                        <a href="/tags/JAVA/">JAVA</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>&nbsp;
                     </li>
                 
             </ul>
@@ -208,48 +212,69 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><ul>
-<li>查看docker容器</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看在运行的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="meta">#</span><span class="bash">显示所有的容器，包括未运行的</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+            <h1 id="谷粒商城"><a href="#谷粒商城" class="headerlink" title="谷粒商城"></a>谷粒商城</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.virtualbox.org/" >virtual box<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.vagrantup.com/" >vagrant<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<p>虚拟镜像地址：<a class="link"   target="_blank" rel="noopener" href="https://app.vagrantup.com/boxes/search" >https://app.vagrantup.com/boxes/search<i class="fas fa-external-link-alt"></i></a></p>
+<ol start="3">
+<li>选择一个路径，cmd初始化centos/7，初始化成功后你会在路径下看到一个Vagrantfile文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init centos/7</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>进入nginx内部</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">容器ID 也就是CONTAINER ID 可以通过docker ps来查看</span></span><br><span class="line">docker exec -it 容器ID bash</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>准备环境</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>将本地的文件放入docker容器</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 文件路径 容器ID:docker容器地址</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>连接虚拟机</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vargrant ssh</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>启动一个nginx容器</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 --name nginx-8080 nginx</span><br></pre></td></tr></table></figure>
+<p>vargrant 是ssh username</p>
+<ol start="6">
+<li><p>网络配置，找到Vagrantfile文件，解开注释</p>
+<p>ip选定：</p>
+<p>cmd  -&gt; ipconfig -&gt;以太网适配器Virtual Box…</p>
+<p>例如：ip为192.168.58.1，那么可以设置虚拟机的IP为192.168.58.10</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network &quot;private_network&quot;,ip: &quot;192.168.58.10&quot;</span><br></pre></td></tr></table></figure>
 
-<p>-p：设置端口映射，8080:80表示将本地的8080端口映射到容器内部的80端口</p>
-<p>-d：表示设置容器在后台运行</p>
-<p>–name：表示设置容器名称</p>
-<ul>
-<li>关闭一个nginx容器</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">names代表设置容器名称</span></span><br><span class="line">docker stop names|容器ID</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>重启虚拟机</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant reload</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>启动一个已经停止的nginx容器</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start names|容器ID</span><br></pre></td></tr></table></figure>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><h3 id="Git环境"><a href="#Git环境" class="headerlink" title="Git环境"></a>Git环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#配置用户名</span><br><span class="line">git config --global user.name &quot;wanglei&quot;</span><br><span class="line">#配置邮箱</span><br><span class="line">git config --global user.email &quot;2239264903@qq.com&quot;</span><br><span class="line">#为你的git注册邮箱生成密钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;2239264903@qq.com&quot;</span><br><span class="line">#查看密钥</span><br><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>构建镜像</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t 镜像名称 .</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在gitee中配置ssh</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/1598493744(1).jpg" alt="1598493744(1)"></p>
+<ol start="2">
+<li>测试git配置是否成功</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看日志</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">-f : 查看实时日志</span></span><br><span class="line">docker logs -f 容器名称</span><br></pre></td></tr></table></figure>
+<h2 id="renren-fast"><a href="#renren-fast" class="headerlink" title="renren-fast"></a>renren-fast</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="POM报错"><a href="#POM报错" class="headerlink" title="POM报错"></a>POM报错</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;parent.relativePath&#39; of POM io.renren:renren-fast:3.0.0 (F:\javaStudy\gulimall\renren-fast\pom.xml) points at com.atguigu.gulimall:gulimall instead of org.springframework.boot:spring-boot-starter-parent, please verify your project structure</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：</p>
+<p>加上<relativePath></relativePath></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210813164932560.png" alt="image-20210813164932560"></p>
+<h2 id="renren-fast-vue"><a href="#renren-fast-vue" class="headerlink" title="renren-fast-vue"></a>renren-fast-vue</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><h4 id="npm-install-安装失败"><a href="#npm-install-安装失败" class="headerlink" title="npm install 安装失败"></a>npm install 安装失败</h4><p>前端项目使用npm install报错的问题，首先确保安装了<strong>python3.0</strong>以上版本，并配置全局变量</p>
+<p>其次大部分错误是报node-sass4.9.0安装失败</p>
+<p>解决方法：</p>
+<ol>
+<li>先将之前安装失败的缓存清除</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall node-sass</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>执行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#执行成功看看有没有报错</span><br><span class="line">npm i node-sass --sass_binary_site&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node-sass&#x2F;</span><br><span class="line">#重新安装</span><br><span class="line">npm install</span><br><span class="line">#没报错就是安装成功，然后使用</span><br><span class="line">npm run dev </span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -258,11 +283,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：Docker</li>
+        <li>本文标题：谷粒商城</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-05-15 23:55:00</li>
+        <li>创建时间：2021-08-12 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/05/15/Docker/
+            本文链接：https://carrywll.github.io/2021/08/12/谷粒商城/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -279,13 +304,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/05/18/Spring%20Boot/"
+                           href="/2021/08/12/Linux%E6%8C%87%E4%BB%A4/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Spring Boot</span>
+                                <span class="post-nav-title-item">Linux指令</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -295,10 +320,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/04/25/hello-world/"
+                           href="/2021/08/10/Gitee+PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">Gitee+PicGo图床搭建</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -496,7 +521,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-text">Docker</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E"><span class="nav-text">谷粒商城</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E7%8E%AF%E5%A2%83"><span class="nav-text">Git环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#renren-fast"><span class="nav-text">renren-fast</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#POM%E6%8A%A5%E9%94%99"><span class="nav-text">POM报错</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#renren-fast-vue"><span class="nav-text">renren-fast-vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-1"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-install-%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5"><span class="nav-text">npm install 安装失败</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
