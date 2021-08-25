@@ -165,7 +165,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-12 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-08-25 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -239,7 +239,7 @@
 
 
 
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有进程</span></span><br><span class="line">ps -aux</span><br></pre></td></tr></table></figure>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有进程</span></span><br><span class="line">ps -aux</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程 排除grep进程</span></span><br><span class="line">ps -ef|grep nginx|grep -v grep</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程最后一列 排除grep进程</span> </span><br><span class="line">ps -ef|grep nginx|grep -v grep| awk &#x27;&#123;print $NF&#125;&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程第2列 排除grep进程</span> </span><br><span class="line">ps -ef|grep nginx|grep -v grep| awk &#x27;&#123;print $2&#125;&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看nginx进程第9列包含 <span class="string">&quot;master&quot;</span>，并打印最后一列 排除grep进程</span></span><br><span class="line">ps -ef|grep nginx|grep -v grep| awk &#x27;$9 ~ /master/ &#123;print $NF&#125;&#x27;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210730143136866.png" alt="image-20210730143136866"></p>
 <ul>
@@ -283,9 +283,9 @@
     <ul>
         <li>本文标题：Linux指令</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-12 00:00:00</li>
+        <li>创建时间：2021-08-25 00:00:00</li>
         <li>
-            本文链接：https://carrywll.github.io/2021/08/12/Linux指令/
+            本文链接：https://carrywll.github.io/2021/08/25/Linux指令/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -299,29 +299,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/13/Docker/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Docker</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/08/12/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/"
+                           href="/2021/08/25/Maven/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">谷粒商城</span>
+                                <span class="post-nav-title-item">Maven</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
