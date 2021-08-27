@@ -21,7 +21,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Persistence is hard, but it must be cool to persevere💪"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Persistence is hard, but it must be cool to persevere💪"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.2"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -29,6 +29,8 @@
 
 <body>
 <div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
     
@@ -46,6 +48,7 @@
 
     <div class="header-content">
         <div class="left">
+            
             <a class="logo-title" href="/">
                 Carry
             </a>
@@ -275,6 +278,11 @@
 <h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">从/var/spool/cron目录中删除某个用户的crontab文件，如果不指定用户，则默认删除当前用户的crontab文件</span></span><br><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h2><h3 id="文件内查找egrep"><a href="#文件内查找egrep" class="headerlink" title="文件内查找egrep"></a>文件内查找egrep</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#去除 nginx.conf.default 文件中 # 和 空号 的内容</span><br><span class="line">egrep -v &quot;#|^$&quot; nginx.conf.default</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210826142246766.png" alt="image-20210826142246766"></p>
+
         </div>
 
         
@@ -480,10 +488,6 @@
         
 
         
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
             <i class="fas fa-arrow-down"></i>
@@ -495,6 +499,11 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
@@ -504,7 +513,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8Bcat"><span class="nav-text">文件查看cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEfind"><span class="nav-text">查找find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4rm"><span class="nav-text">删除rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8ls"><span class="nav-text">文件目录列表ls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab"><span class="nav-text">crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-text">新增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8Bcat"><span class="nav-text">文件查看cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEfind"><span class="nav-text">查找find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4rm"><span class="nav-text">删除rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8ls"><span class="nav-text">文件目录列表ls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab"><span class="nav-text">crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-text">新增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="nav-text">查找命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E6%9F%A5%E6%89%BEegrep"><span class="nav-text">文件内查找egrep</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
