@@ -151,90 +151,62 @@
         <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;JAVA
         </div>
         <div class="tag-post-list">
-            $archive-year-font-size = 1.8rem;
-$archive-year-count-font-size = 1.2rem;
-$article-title-font-size = 1.2rem;
-$article-date-font-size = 1rem;
-
-.archive-list-container {
-
-  .archive-item {
-    margin-bottom: $component-spacing-value;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    .archive-item-header {
-      margin-bottom: 10px;
-
-      .archive-year {
-        font-size: $archive-year-font-size;
-
-        +keep-tablet() {
-          font-size: $archive-year-font-size - 0.2rem;
-        }
-
-        color: var(--second-text-color);
-        font-weight: 600;
-        margin-right: 6px;
-      }
-
-
-      .archive-year-post-count {
-        font-size: $archive-year-count-font-size;
-        font-weight: 500;
-        color: var(--second-text-color);
-
-        +keep-tablet() {
-          font-size: $archive-year-count-font-size * 0.9;
-        }
-      }
-
-    }
-
-
-    .article-list {
-
-      padding-left: 10px;
-
-      +keep-tablet() {
-        padding-left: 0;
-      }
-
-      .article-item {
-        font-size: 1rem;
-        margin-top: 18px;
-
-        +keep-tablet() {
-          margin-top: 16px;
-        }
-
-        +keep-mobile() {
-          margin-top: 14px;
-        }
-
-        &:hover {
-          a.article-title, .article-date {
-            color: var(--primary-color);
-          }
-        }
-
-
-        a.article-title {
-          color: var(--default-text-color);
-        }
-
-        .article-date {
-          font-size: $article-date-font-size;
-          float: right;
-        }
-      }
-    }
-  }
-}
-
-
+            
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2021</span>
+                <span class="archive-year-post-count">[6]</span>
+            </div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/08/16/Java%E5%9F%BA%E7%A1%80/"
+                        >Java基础</a>
+                        <span class="article-date">08-16</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/08/12/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/"
+                        >谷粒商城</a>
+                        <span class="article-date">08-12</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/08/10/Optional-in-Java/"
+                        >Optional in Java</a>
+                        <span class="article-date">08-10</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/08/03/JAVA-NIO/"
+                        >JAVA-NIO</a>
+                        <span class="article-date">08-03</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/07/01/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"
+                        >网络编程</a>
+                        <span class="article-date">07-01</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2021/06/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"
+                        >Java多线程</a>
+                        <span class="article-date">06-26</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
+</div>
 
         </div>
     </div>
