@@ -226,7 +226,10 @@
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20211009123707911.png" alt="image-20211009123707911"></p>
 <h2 id="3-mysql查询sql-mode"><a href="#3-mysql查询sql-mode" class="headerlink" title="3.mysql查询sql_mode"></a>3.mysql查询sql_mode</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@global</span>.sql_mode;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-left-join-左表合并去重技巧总结"><a href="#4-left-join-左表合并去重技巧总结" class="headerlink" title="4.left join 左表合并去重技巧总结"></a>4.left join 左表合并去重技巧总结</h2><blockquote>
+<h2 id="4-windows端口占用问题"><a href="#4-windows端口占用问题" class="headerlink" title="4.windows端口占用问题"></a>4.windows端口占用问题</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">找到占用的进程</span></span><br><span class="line">netstat -aon|findstr 10000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">杀死进程</span></span><br><span class="line">taskkill /f /t /im 10932</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20200914161622359.png" alt="image-20200914161622359"></p>
+<blockquote>
 <p>参考资料：</p>
 <blockquote>
 <ol>
@@ -263,7 +266,7 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/10/13/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/"
+                           href="/2021/10/14/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
@@ -481,7 +484,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91"><span class="nav-text">编程疑惑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-mybatis%E4%B8%AD%E7%9A%84-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E9%98%B2%E6%AD%A2sql%E6%B3%A8%E5%85%A5%EF%BC%8C-%E4%B8%8D%E8%83%BD%E9%98%B2%E6%AD%A2sql%E6%B3%A8%E5%85%A5"><span class="nav-text">1.mybatis中的#{} 为什么能防止sql注入，${}不能防止sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1sql%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1sql注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E5%8E%9F%E5%9B%A0"><span class="nav-text">1.2原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mysql%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E6%AF%8F%E7%BB%84%E6%9C%80%E6%96%B0%E7%9A%84%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">2.mysql分组查询每组最新的一条数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-mysql%E6%9F%A5%E8%AF%A2sql-mode"><span class="nav-text">3.mysql查询sql_mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-left-join-%E5%B7%A6%E8%A1%A8%E5%90%88%E5%B9%B6%E5%8E%BB%E9%87%8D%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93"><span class="nav-text">4.left join 左表合并去重技巧总结</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91"><span class="nav-text">编程疑惑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-mybatis%E4%B8%AD%E7%9A%84-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E9%98%B2%E6%AD%A2sql%E6%B3%A8%E5%85%A5%EF%BC%8C-%E4%B8%8D%E8%83%BD%E9%98%B2%E6%AD%A2sql%E6%B3%A8%E5%85%A5"><span class="nav-text">1.mybatis中的#{} 为什么能防止sql注入，${}不能防止sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1sql%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1sql注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E5%8E%9F%E5%9B%A0"><span class="nav-text">1.2原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mysql%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E6%AF%8F%E7%BB%84%E6%9C%80%E6%96%B0%E7%9A%84%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">2.mysql分组查询每组最新的一条数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-mysql%E6%9F%A5%E8%AF%A2sql-mode"><span class="nav-text">3.mysql查询sql_mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-windows%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-text">4.windows端口占用问题</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
