@@ -168,7 +168,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-16 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2022-01-04 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -274,6 +274,12 @@
 <h2 id="IO操作"><a href="#IO操作" class="headerlink" title="IO操作"></a>IO操作</h2><h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOperationHistoryByFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">    BufferedReader bufferedReader = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fileReader = <span class="keyword">new</span> FileReader(<span class="string">&quot;history.log&quot;</span>);</span><br><span class="line">        bufferedReader = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">        String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>( (str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (bufferedReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            bufferedReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (fileReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            fileReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210804193423354.png" alt="image-20210804193423354"></p>
+<h3 id="通过文件url读取文本文件内容"><a href="#通过文件url读取文本文件内容" class="headerlink" title="通过文件url读取文本文件内容"></a>通过文件url读取文本文件内容</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 通过文件url读取文件内容-编码格式默认为UTF-8</span></span><br><span class="line"><span class="comment">* 借助hutool工具包</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> 文件内容</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">readFileByURL</span><span class="params">(String fileUrl)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    BufferedReader utf8Reader = <span class="keyword">null</span>;</span><br><span class="line">    InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    	URL url = <span class="keyword">new</span> URL(fileUrl);</span><br><span class="line">    	HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line">    	<span class="comment">// 设置读取超时时间(毫秒)</span></span><br><span class="line">    	httpURLConnection.setReadTimeout(<span class="number">30000</span>);</span><br><span class="line">    	<span class="comment">// 设置连接超时时间(毫秒)</span></span><br><span class="line">    	httpURLConnection.setConnectTimeout(<span class="number">15000</span>);</span><br><span class="line">    	httpURLConnection.connect();</span><br><span class="line">    	<span class="comment">// 得到网络返回的输入流</span></span><br><span class="line">    	inputStream = httpURLConnection.getInputStream();</span><br><span class="line">    	<span class="comment">// 获得一个文件读取器，默认使用UTF-8编码</span></span><br><span class="line">    	utf8Reader = IoUtil.getUtf8Reader(inputStream);</span><br><span class="line">    	String str = <span class="keyword">null</span>;</span><br><span class="line">    	<span class="keyword">while</span> ((str = utf8Reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">    		sb.append(str + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">       utf8Reader.close();</span><br><span class="line">       inputStream.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="log4j-slf4"><a href="#log4j-slf4" class="headerlink" title="log4j+slf4"></a>log4j+slf4</h3><ul>
 <li><p>依赖：</p>
 <ul>
@@ -303,9 +309,9 @@
     <ul>
         <li>本文标题：Java基础</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-16 00:00:00</li>
+        <li>创建时间：2022-01-04 00:00:00</li>
         <li>
-            本文链接：https://carrywl.gitee.io/2021/08/16/Java基础/
+            本文链接：https://carrywl.gitee.io/2022/01/04/Java基础/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -319,29 +325,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/25/Maven/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Maven</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/08/13/Docker/"
+                           href="/2022/01/04/Nginx/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Docker</span>
+                                <span class="post-nav-title-item">Nginx</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -448,7 +439,7 @@
         <div class="copyright-info info-item">
             &copy;
             
-              <span>2021</span>&nbsp;-&nbsp;
+              <span>2021-2022</span>&nbsp;-&nbsp;
             
             2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Carry灭霸</a>
         </div>
@@ -540,7 +531,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scanner%E5%AF%B9%E8%B1%A1"><span class="nav-text">Scanner对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-text">可变参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%99%A8%E7%BB%83%E4%B9%A0"><span class="nav-text">计算器练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%93%8D%E4%BD%9C"><span class="nav-text">IO操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-text">读取文件内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97"><span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#log4j-slf4"><span class="nav-text">log4j+slf4</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scanner%E5%AF%B9%E8%B1%A1"><span class="nav-text">Scanner对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-text">可变参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%99%A8%E7%BB%83%E4%B9%A0"><span class="nav-text">计算器练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E6%93%8D%E4%BD%9C"><span class="nav-text">IO操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-text">读取文件内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%96%87%E4%BB%B6url%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="nav-text">通过文件url读取文本文件内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97"><span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#log4j-slf4"><span class="nav-text">log4j+slf4</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

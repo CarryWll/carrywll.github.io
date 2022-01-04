@@ -125,7 +125,7 @@
   </entry>
   <entry>
     <title>Java基础</title>
-    <url>/2021/08/16/Java%E5%9F%BA%E7%A1%80/</url>
+    <url>/2022/01/04/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><p>gitee地址：<a class="link"   href="https://gitee.com/carrywl/java-basic.git" >https://gitee.com/carrywl/java-basic.git<i class="fas fa-external-link-alt"></i></a></p>
 <p>八大基本类型 byte,short,char==int==long==float==double boolean</p>
 <h2 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h2><p>next和nextLine区别：</p>
@@ -189,6 +189,12 @@
 <h2 id="IO操作"><a href="#IO操作" class="headerlink" title="IO操作"></a>IO操作</h2><h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getOperationHistoryByFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">    BufferedReader bufferedReader = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fileReader = <span class="keyword">new</span> FileReader(<span class="string">&quot;history.log&quot;</span>);</span><br><span class="line">        bufferedReader = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">        String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>( (str = bufferedReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (bufferedReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            bufferedReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (fileReader != <span class="keyword">null</span>)&#123;</span><br><span class="line">            fileReader.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210804193423354.png" alt="image-20210804193423354"></p>
+<h3 id="通过文件url读取文本文件内容"><a href="#通过文件url读取文本文件内容" class="headerlink" title="通过文件url读取文本文件内容"></a>通过文件url读取文本文件内容</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 通过文件url读取文件内容-编码格式默认为UTF-8</span></span><br><span class="line"><span class="comment">* 借助hutool工具包</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> 文件内容</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">readFileByURL</span><span class="params">(String fileUrl)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    BufferedReader utf8Reader = <span class="keyword">null</span>;</span><br><span class="line">    InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    	URL url = <span class="keyword">new</span> URL(fileUrl);</span><br><span class="line">    	HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line">    	<span class="comment">// 设置读取超时时间(毫秒)</span></span><br><span class="line">    	httpURLConnection.setReadTimeout(<span class="number">30000</span>);</span><br><span class="line">    	<span class="comment">// 设置连接超时时间(毫秒)</span></span><br><span class="line">    	httpURLConnection.setConnectTimeout(<span class="number">15000</span>);</span><br><span class="line">    	httpURLConnection.connect();</span><br><span class="line">    	<span class="comment">// 得到网络返回的输入流</span></span><br><span class="line">    	inputStream = httpURLConnection.getInputStream();</span><br><span class="line">    	<span class="comment">// 获得一个文件读取器，默认使用UTF-8编码</span></span><br><span class="line">    	utf8Reader = IoUtil.getUtf8Reader(inputStream);</span><br><span class="line">    	String str = <span class="keyword">null</span>;</span><br><span class="line">    	<span class="keyword">while</span> ((str = utf8Reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">    		sb.append(str + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">       utf8Reader.close();</span><br><span class="line">       inputStream.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="log4j-slf4"><a href="#log4j-slf4" class="headerlink" title="log4j+slf4"></a>log4j+slf4</h3><ul>
 <li><p>依赖：</p>
 <ul>
@@ -2045,6 +2051,21 @@
       <tags>
         <tag>Linux</tag>
         <tag>服务器环境</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FastDfs下载文件恢复原文件名称</title>
+    <url>/2022/01/04/FastDfs%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D%E5%8E%9F%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</url>
+    <content><![CDATA[<p>nginx.conf配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#fastdfs文件配置</span><br><span class="line">location ~&#x2F;group([0-9])&#x2F;M00 &#123;</span><br><span class="line">    root &#x2F;home&#x2F;dbap&#x2F;data&#x2F;fastdfs&#x2F;storage&#x2F;data;</span><br><span class="line">    if ($arg_fileName ~ &quot;^(.+)&quot;) &#123;</span><br><span class="line">        #设置下载</span><br><span class="line">        add_header Content-Type application&#x2F;x-download;</span><br><span class="line">        #设置文件名</span><br><span class="line">        add_header Content-Disposition &quot;attachment;filename&#x3D;$arg_fileName&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    ngx_fastdfs_module;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a class="link"   href="http://10.19.28.170/group1/M00/00/0A/ChMcqmHNJnSAAa1LAA9Ur8QGG38398.jar?fileName=postgresql-42.2.18.jar" >http://10.19.28.170/group1/M00/00/0A/ChMcqmHNJnSAAa1LAA9Ur8QGG38398.jar?fileName=postgresql-42.2.18.jar<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+      <categories>
+        <category>FastDfs</category>
+      </categories>
+      <tags>
+        <tag>FastDfs</tag>
       </tags>
   </entry>
 </search>
