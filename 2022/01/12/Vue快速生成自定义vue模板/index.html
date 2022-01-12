@@ -9,7 +9,7 @@
     
     <title>
         
-            ES6解构 |
+            Vue快速生成自定义vue模板 |
         
         Carry
     </title>
@@ -150,7 +150,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">ES6解构</span>
+            <span class="title-hover-animation">Vue快速生成自定义vue模板</span>
         </div>
 
         
@@ -168,7 +168,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-01-12 11:30:00
+        <i class="fas fa-edit"></i>&nbsp;2022-01-12 22:15:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -176,7 +176,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/JavaScript/">JavaScript</a>&nbsp;
+                        <a href="/categories/Vue/">Vue</a>&nbsp;
                     </li>
                 
             </ul>
@@ -188,11 +188,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/ES6/">ES6</a>&nbsp;
+                        <a href="/tags/Vue/">Vue</a>&nbsp;
                     </li>
                 
             </ul>
@@ -215,34 +211,15 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="ES6解构"><a href="#ES6解构" class="headerlink" title="ES6解构"></a>ES6解构</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;wanglei&#x27;</span>, <span class="string">&#x27;duxiaolin&#x27;</span>, <span class="string">&#x27;carry&#x27;</span>]</span><br></pre></td></tr></table></figure>
+            <h1 id="Vue快速生成自定义vue模板"><a href="#Vue快速生成自定义vue模板" class="headerlink" title="Vue快速生成自定义vue模板"></a>Vue快速生成自定义vue模板</h1><h2 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h2><p>官网：<a class="link"   target="_blank" rel="noopener" href="https://code.visualstudio.com/" >https://code.visualstudio.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="安装-Vetur-插件，识别-vue-文件"><a href="#安装-Vetur-插件，识别-vue-文件" class="headerlink" title="安装 Vetur 插件，识别 vue 文件"></a>安装 Vetur 插件，识别 vue 文件</h2><p>在应用商店中搜索 Vetur，点击安装，安装完成之后点击重新加载</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20220112222022136.png" alt="image-20220112222022136"></p>
+<h2 id="新建代码片段"><a href="#新建代码片段" class="headerlink" title="新建代码片段"></a>新建代码片段</h2><p>文件 ➡ 首选项 ➡ 用户代码片段 ➡ 点击新建全局代码片段 ➡ 取名 vue ➡ 确定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;Print to console&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: <span class="string">&quot;vue&quot;</span>,</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;!-- $1 --&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;template&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;div class=&#x27;$2&#x27;&gt;$5&lt;/div&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;/template&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;script&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//例如：import 《组件名称》 from &#x27;《组件路径》&#x27;;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;export default &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//import引入的组件需要注入到对象中才能使用&quot;</span>,</span><br><span class="line">            <span class="string">&quot;components: &#123;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;data() &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//这里存放数据&quot;</span>,</span><br><span class="line">            <span class="string">&quot;return &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//监听属性 类似于data概念&quot;</span>,</span><br><span class="line">            <span class="string">&quot;computed: &#123;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//监控data中的数据变化&quot;</span>,</span><br><span class="line">            <span class="string">&quot;watch: &#123;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//方法集合&quot;</span>,</span><br><span class="line">            <span class="string">&quot;methods: &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//生命周期 - 创建完成（可以访问当前this实例）&quot;</span>,</span><br><span class="line">            <span class="string">&quot;created() &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//生命周期 - 挂载完成（可以访问DOM元素）&quot;</span>,</span><br><span class="line">            <span class="string">&quot;mounted() &#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;,&quot;</span>,</span><br><span class="line">            <span class="string">&quot;beforeCreate() &#123;&#125;, //生命周期 - 创建之前&quot;</span>,</span><br><span class="line">            <span class="string">&quot;beforeMount() &#123;&#125;, //生命周期 - 挂载之前&quot;</span>,</span><br><span class="line">            <span class="string">&quot;beforeUpdate() &#123;&#125;, //生命周期 - 更新之前&quot;</span>,</span><br><span class="line">            <span class="string">&quot;updated() &#123;&#125;, //生命周期 - 更新之后&quot;</span>,</span><br><span class="line">            <span class="string">&quot;beforeDestroy() &#123;&#125;, //生命周期 - 销毁之前&quot;</span>,</span><br><span class="line">            <span class="string">&quot;destroyed() &#123;&#125;, //生命周期 - 销毁完成&quot;</span>,</span><br><span class="line">            <span class="string">&quot;activated() &#123;&#125;, //如果页面有keep-alive缓存功能，这个函数会触发&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;/script&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;style scoped&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;//@import url($3); 引入公共css类&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$4&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;/style&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;生成vue模板&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;http-get请求&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;prefix&quot;</span>: <span class="string">&quot;httpget&quot;</span>,</span><br><span class="line">	<span class="string">&quot;body&quot;</span>: [</span><br><span class="line">		<span class="string">&quot;this.\\$http(&#123;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;url: this.\\$http.adornUrl(&#x27;&#x27;),&quot;</span>,</span><br><span class="line">		<span class="string">&quot;method: &#x27;get&#x27;,&quot;</span>,</span><br><span class="line">		<span class="string">&quot;params: this.\\$http.adornParams(&#123;&#125;)&quot;</span>,</span><br><span class="line">		<span class="string">&quot;&#125;).then((&#123; data &#125;) =&gt; &#123;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;&#125;)&quot;</span></span><br><span class="line">	],</span><br><span class="line">	<span class="string">&quot;description&quot;</span>: <span class="string">&quot;httpGET请求&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;http-post请求&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;prefix&quot;</span>: <span class="string">&quot;httppost&quot;</span>,</span><br><span class="line">	<span class="string">&quot;body&quot;</span>: [</span><br><span class="line">		<span class="string">&quot;this.\\$http(&#123;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;url: this.\\$http.adornUrl(&#x27;&#x27;),&quot;</span>,</span><br><span class="line">		<span class="string">&quot;method: &#x27;post&#x27;,&quot;</span>,</span><br><span class="line">		<span class="string">&quot;data: this.\\$http.adornData(data, false)&quot;</span>,</span><br><span class="line">		<span class="string">&quot;&#125;).then((&#123; data &#125;) =&gt; &#123; &#125;);&quot;</span> </span><br><span class="line">	],</span><br><span class="line">	<span class="string">&quot;description&quot;</span>: <span class="string">&quot;httpPOST请求&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="数组提取元素"><a href="#数组提取元素" class="headerlink" title="数组提取元素"></a>数组提取元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [first] = names</span><br><span class="line"><span class="built_in">console</span>.log(first) <span class="comment">// wanglei</span></span><br><span class="line"><span class="keyword">const</span> [first,second] = names</span><br><span class="line"><span class="built_in">console</span>.log(first,second) <span class="comment">//wanglei duxiaolin</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="不存在值的默认"><a href="#不存在值的默认" class="headerlink" title="不存在值的默认"></a>不存在值的默认</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, second, third, fourth] = names;  </span><br><span class="line"><span class="built_in">console</span>.log(fourth); <span class="comment">// undefined  </span></span><br></pre></td></tr></table></figure>
-
-<p>这种情况一般赋予默认值</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, second, third, fourth=<span class="string">&#x27;wll&#x27;</span>] = names;  </span><br><span class="line"><span class="built_in">console</span>.log(fourth); <span class="comment">// wll</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="跳过数组某个元素"><a href="#跳过数组某个元素" class="headerlink" title="跳过数组某个元素"></a>跳过数组某个元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [first,,second] = names;</span><br><span class="line"><span class="built_in">console</span>.log(first,second) <span class="comment">// wanglei carry</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="提取全部元素"><a href="#提取全部元素" class="headerlink" title="提取全部元素"></a>提取全部元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, ...rest] = names;</span><br><span class="line"><span class="built_in">console</span>.log(rest) <span class="comment">// [&#x27;duxiaolin&#x27;, &#x27;carry&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;  </span><br><span class="line">  name: <span class="string">&#x27;wanglei&#x27;</span>,</span><br><span class="line">  age: <span class="string">&#x27;24&#x27;</span>,</span><br><span class="line">  facts: &#123;</span><br><span class="line">    hobby: <span class="string">&#x27;games&#x27;</span>,</span><br><span class="line">    work: <span class="string">&#x27;Software Developer&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="从对象提取数据"><a href="#从对象提取数据" class="headerlink" title="从对象提取数据"></a>从对象提取数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = person;  </span><br><span class="line"><span class="built_in">console</span>.log(name, age); <span class="comment">// &#x27;wanglei&#x27; &#x27;24&#x27;  </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="提取嵌套值"><a href="#提取嵌套值" class="headerlink" title="提取嵌套值"></a>提取嵌套值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;<span class="attr">facts</span>: &#123;hobby&#125;&#125; = person;  </span><br><span class="line"><span class="built_in">console</span>.log(hobby); <span class="comment">// &#x27;games&#x27;  </span></span><br></pre></td></tr></table></figure>
-
-<p>不存在值的默认也是undefined</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> toString = <span class="function">(<span class="params">&#123;name, age&#125;</span>) =&gt;</span> &#123;  </span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;name&#125;</span> is <span class="subst">$&#123;age&#125;</span> years old`</span>;</span><br><span class="line">&#125;</span><br><span class="line">toString(person) <span class="comment">// &#x27;wanglei is 24 years old&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="新建一个-vue-文件输入-vue-测试"><a href="#新建一个-vue-文件输入-vue-测试" class="headerlink" title="新建一个 .vue 文件输入 vue 测试"></a>新建一个 .vue 文件输入 vue 测试</h2><p>上面的配置中：<code>&quot;prefix&quot;: &quot;vue&quot;</code>、<code>&quot;prefix&quot;: &quot;httpget&quot;</code>、<code>&quot;prefix&quot;: &quot;httppost&quot;</code> 就是你的快捷输入名称，可自行修改</p>
 <blockquote>
-<p>参考🔗：<a class="link"   target="_blank" rel="noopener" href="https://www.deadcoderising.com/2017-03-28-es6-destructuring-an-elegant-way-of-extracting-data-from-arrays-and-objects-in-javascript/" >https://www.deadcoderising.com/2017-03-28-es6-destructuring-an-elegant-way-of-extracting-data-from-arrays-and-objects-in-javascript/<i class="fas fa-external-link-alt"></i></a></p>
+<p>参考🔗: <a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/songjilong/p/12635448.html" >https://www.cnblogs.com/songjilong/p/12635448.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 
         </div>
@@ -251,11 +228,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：ES6解构</li>
+        <li>本文标题：Vue快速生成自定义vue模板</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2022-01-12 11:30:00</li>
+        <li>创建时间：2022-01-12 22:15:00</li>
         <li>
-            本文链接：https://carrywl.gitee.io/2022/01/12/ES6解构/
+            本文链接：https://carrywl.gitee.io/2022/01/12/Vue快速生成自定义vue模板/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -269,29 +246,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/01/12/Vue%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89vue%E6%A8%A1%E6%9D%BF/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Vue快速生成自定义vue模板</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/01/04/Java%E5%9F%BA%E7%A1%80/"
+                           href="/2022/01/12/ES6%E8%A7%A3%E6%9E%84/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Java基础</span>
+                                <span class="post-nav-title-item">ES6解构</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -490,7 +452,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6%E8%A7%A3%E6%9E%84"><span class="nav-text">ES6解构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%8F%90%E5%8F%96%E5%85%83%E7%B4%A0"><span class="nav-text">数组提取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%80%BC%E7%9A%84%E9%BB%98%E8%AE%A4"><span class="nav-text">不存在值的默认</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BF%87%E6%95%B0%E7%BB%84%E6%9F%90%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-text">跳过数组某个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%85%A8%E9%83%A8%E5%85%83%E7%B4%A0"><span class="nav-text">提取全部元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%AF%B9%E8%B1%A1%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">从对象提取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%B5%8C%E5%A5%97%E5%80%BC"><span class="nav-text">提取嵌套值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89vue%E6%A8%A1%E6%9D%BF"><span class="nav-text">Vue快速生成自定义vue模板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode"><span class="nav-text">安装vscode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Vetur-%E6%8F%92%E4%BB%B6%EF%BC%8C%E8%AF%86%E5%88%AB-vue-%E6%96%87%E4%BB%B6"><span class="nav-text">安装 Vetur 插件，识别 vue 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="nav-text">新建代码片段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA-vue-%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5-vue-%E6%B5%8B%E8%AF%95"><span class="nav-text">新建一个 .vue 文件输入 vue 测试</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
