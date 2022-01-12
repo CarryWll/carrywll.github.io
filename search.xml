@@ -2103,4 +2103,45 @@
         <tag>linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ES6解构</title>
+    <url>/2022/01/12/ES6%E8%A7%A3%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="ES6解构"><a href="#ES6解构" class="headerlink" title="ES6解构"></a>ES6解构</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;wanglei&#x27;</span>, <span class="string">&#x27;duxiaolin&#x27;</span>, <span class="string">&#x27;carry&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数组提取元素"><a href="#数组提取元素" class="headerlink" title="数组提取元素"></a>数组提取元素</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [first] = names</span><br><span class="line"><span class="built_in">console</span>.log(first) <span class="comment">// wanglei</span></span><br><span class="line"><span class="keyword">const</span> [first,second] = names</span><br><span class="line"><span class="built_in">console</span>.log(first,second) <span class="comment">//wanglei duxiaolin</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="不存在值的默认"><a href="#不存在值的默认" class="headerlink" title="不存在值的默认"></a>不存在值的默认</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, second, third, fourth] = names;  </span><br><span class="line"><span class="built_in">console</span>.log(fourth); <span class="comment">// undefined  </span></span><br></pre></td></tr></table></figure>
+
+<p>这种情况一般赋予默认值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, second, third, fourth=<span class="string">&#x27;wll&#x27;</span>] = names;  </span><br><span class="line"><span class="built_in">console</span>.log(fourth); <span class="comment">// wll</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="跳过数组某个元素"><a href="#跳过数组某个元素" class="headerlink" title="跳过数组某个元素"></a>跳过数组某个元素</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [first,,second] = names;</span><br><span class="line"><span class="built_in">console</span>.log(first,second) <span class="comment">// wanglei carry</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提取全部元素"><a href="#提取全部元素" class="headerlink" title="提取全部元素"></a>提取全部元素</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [first, ...rest] = names;</span><br><span class="line"><span class="built_in">console</span>.log(rest) <span class="comment">// [&#x27;duxiaolin&#x27;, &#x27;carry&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;  </span><br><span class="line">  name: <span class="string">&#x27;wanglei&#x27;</span>,</span><br><span class="line">  age: <span class="string">&#x27;24&#x27;</span>,</span><br><span class="line">  facts: &#123;</span><br><span class="line">    hobby: <span class="string">&#x27;games&#x27;</span>,</span><br><span class="line">    work: <span class="string">&#x27;Software Developer&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="从对象提取数据"><a href="#从对象提取数据" class="headerlink" title="从对象提取数据"></a>从对象提取数据</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;name, age&#125; = person;  </span><br><span class="line"><span class="built_in">console</span>.log(name, age); <span class="comment">// &#x27;wanglei&#x27; &#x27;24&#x27;  </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提取嵌套值"><a href="#提取嵌套值" class="headerlink" title="提取嵌套值"></a>提取嵌套值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;<span class="attr">facts</span>: &#123;hobby&#125;&#125; = person;  </span><br><span class="line"><span class="built_in">console</span>.log(hobby); <span class="comment">// &#x27;games&#x27;  </span></span><br></pre></td></tr></table></figure>
+
+<p>不存在值的默认也是undefined</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> toString = <span class="function">(<span class="params">&#123;name, age&#125;</span>) =&gt;</span> &#123;  </span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;name&#125;</span> is <span class="subst">$&#123;age&#125;</span> years old`</span>;</span><br><span class="line">&#125;</span><br><span class="line">toString(person) <span class="comment">// &#x27;wanglei is 24 years old&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>参考🔗：<a class="link"   href="https://www.deadcoderising.com/2017-03-28-es6-destructuring-an-elegant-way-of-extracting-data-from-arrays-and-objects-in-javascript/" >https://www.deadcoderising.com/2017-03-28-es6-destructuring-an-elegant-way-of-extracting-data-from-arrays-and-objects-in-javascript/<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
 </search>
