@@ -2183,4 +2183,25 @@
         <tag>filter</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Spring5</title>
+    <url>/2022/02/21/Spring5/</url>
+    <content><![CDATA[<h1 id="Spring5"><a href="#Spring5" class="headerlink" title="Spring5"></a>Spring5</h1><p>IOC容器底层就是对象工厂</p>
+<p>Spring提供IOC容器实现两种方式(两个接口)：</p>
+<ol>
+<li>BeanFactory: IOC容器的基本实现，是Spring 内部使用接口</li>
+</ol>
+<p>​        <strong>加载配置文件时不会创建对象，在获取对象(使用)才去创建对象</strong></p>
+<ol start="2">
+<li>ApplicationContext: BeanFactory接口的子接口，提供更多功能</li>
+</ol>
+<p>​        <strong>加载配置文件时就会把在配置文件对象进行创建</strong></p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
 </search>
