@@ -2204,4 +2204,83 @@
         <tag>Spring</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VirtualBox虚拟机</title>
+    <url>/2022/02/23/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="VirtualBox虚拟机搭建Linux系统"><a href="#VirtualBox虚拟机搭建Linux系统" class="headerlink" title="VirtualBox虚拟机搭建Linux系统"></a>VirtualBox虚拟机搭建Linux系统</h1><ol>
+<li>下载安装<a class="link"   href="https://www.virtualbox.org/wiki/Downloads" >VirtualBox<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<p>默认后续安装的虚拟机是在C盘，如果不想放在C盘，可以打开VirtualBox来设置</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223100342771.png" alt="image-20220223100342771"></p>
+<ol start="2">
+<li><p>检查电脑BIOS是否开启CPU虚拟化</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223093830758.png" alt="image-20220223093830758"></p>
+</li>
+</ol>
+<p>若未启用，那么开机时，快速按ESC，进入BIOS后，找到Configuration(配置)选项，选择Intel Virtual Technology(CPU虚拟化)，设置为Enabled，最后保存退出就可以了。</p>
+<ol start="3">
+<li>下载安装<a class="link"   href="https://www.vagrantup.com/downloads" >Vagrant<i class="fas fa-external-link-alt"></i></a>，在cmd窗口输入vagrant验证是否成功</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223094619682.png" alt="image-20220223094619682"></p>
+<ol start="4">
+<li>下载镜像</li>
+</ol>
+<p>​    官方地址：<a class="link"   href="https://app.vagrantup.com/boxes/search" >Discover Vagrant Boxes - Vagrant Cloud (vagrantup.com)<i class="fas fa-external-link-alt"></i></a></p>
+<p>​    <img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095217581.png" alt="image-20220223095217581"></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095247548.png" alt="image-20220223095247548"></p>
+<p>​    如果上述官方网址下载慢，可以尝试下方的镜像网站</p>
+<p>​    镜像地址：<a class="link"   href="http://mirrors.ustc.edu.cn/centos-cloud/centos/7/vagrant/x86_64/images/" >Index of /centos-cloud/centos/7/vagrant/x86_64/images/ (ustc.edu.cn)<i class="fas fa-external-link-alt"></i></a></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095531351.png" alt="image-20220223095531351"></p>
+<ol start="5">
+<li>初始化环境</li>
+</ol>
+<p>选择一个目录（建议：在你第一步设置VirtualBox默认虚拟电脑目录），继续在cmd执行此命令</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">vagrant init centos/<span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>​    此时会产生一个文件<strong>Vagrantfile</strong>后续设置网络需要使用</p>
+<ol start="6">
+<li>安装镜像</li>
+</ol>
+<p>同上述你选择的目录，cmd执行此命令</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">vagrant box add centos/<span class="number">7</span> CentOS<span class="literal">-7</span><span class="literal">-x86_64</span><span class="literal">-Vagrant</span><span class="literal">-2004_01</span>.VirtualBox.box</span><br></pre></td></tr></table></figure>
+
+<p>上述命令执行完成后，继续执行vagrant up启动虚拟机</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后，可以尝试连接</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p>vagrant和root用户密码都是vagrant</p>
+<ol start="7">
+<li>设置网络</li>
+</ol>
+<p>​    cmd输入ipconfig查看虚拟机的适配器ip为192.168.56.1</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223101854329.png" alt="image-20220223101854329"></p>
+<p>​    打开初始化生成的Vagrantfile文件，解开这行的注释，并且保持同一网段，可以设置为192.168.56.10</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223101749320.png" alt="image-20220223101749320"></p>
+<p> 修改完成后，在初始化目录执行 <code>vagrant reload</code> 命令重建虚机</p>
+<ol start="8">
+<li>使用第三方工具连接</li>
+</ol>
+<hr>
+<p>问题：</p>
+<p>刚输入用户名vagrant</p>
+<p>error：<strong>No supported authentication methods available (server sent: publickey,gssapi-keyex,gssapi-with-mic)</strong></p>
+<p>解决方法：</p>
+<p>启动虚拟机<code>vagrant up</code>，使用<code>vagrant ssh</code>连接</p>
+<p>输入<code>sudo vi /etc/ssh/sshd_config</code>找到PasswordAuthentication配置改成yes</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223110549077.png" alt="image-20220223110549077"></p>
+<p>修改完成后保存退出，重启 SSH 服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>再次输入用户名连接就可以了</p>
+]]></content>
+      <categories>
+        <category>VM</category>
+      </categories>
+      <tags>
+        <tag>VM</tag>
+      </tags>
+  </entry>
 </search>

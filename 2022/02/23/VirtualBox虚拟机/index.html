@@ -9,7 +9,7 @@
     
     <title>
         
-            JAVA-NIO |
+            VirtualBox虚拟机 |
         
         Carry
     </title>
@@ -150,7 +150,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">JAVA-NIO</span>
+            <span class="title-hover-animation">VirtualBox虚拟机</span>
         </div>
 
         
@@ -168,7 +168,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-03 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2022-02-23 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -176,7 +176,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/JAVA/">JAVA</a>&nbsp;
+                        <a href="/categories/VM/">VM</a>&nbsp;
                     </li>
                 
             </ul>
@@ -188,11 +188,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/JAVA/">JAVA</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/NIO/">NIO</a>&nbsp;
+                        <a href="/tags/VM/">VM</a>&nbsp;
                     </li>
                 
             </ul>
@@ -215,125 +211,74 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="JAVA-NIO"><a href="#JAVA-NIO" class="headerlink" title="JAVA-NIO"></a>JAVA-NIO</h1><p><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/carrywl/java-basic/tree/master/src/main/java/com/wl/nio" >代码仓库<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="IO和NIO区别："><a href="#IO和NIO区别：" class="headerlink" title="IO和NIO区别："></a>IO和NIO区别：</h2><p>第一点：</p>
-<ul>
-<li>IO面向流：单向</li>
-<li>NIO面向缓冲区：双向</li>
-</ul>
-<p>第二点：</p>
-<ul>
-<li>IO是阻塞IO</li>
-<li>NIO是非阻塞IO</li>
-</ul>
-<p>第三点：</p>
-<ul>
-<li>NIO有选择器</li>
-</ul>
-<p>NIO的通道负责传输，缓冲区负责存储</p>
-<h2 id="缓冲区"><a href="#缓冲区" class="headerlink" title="缓冲区"></a>缓冲区</h2><p>一：缓冲区就是数组，用于存储不同类型的数据。</p>
-<p>根据类型不同（boolean除外），提供相应类型的缓冲区</p>
-<ul>
-<li>BytebBuffer</li>
-<li>CharBuffer</li>
-<li>ShortBuffer</li>
-<li>IntBuffer</li>
-<li>LongBuffer</li>
-<li>FloatBuffer</li>
-<li>DoubleBuffer</li>
-</ul>
-<p>一般都通过allocate()获取缓冲区</p>
-<p>二：缓冲区存取数据的两个核心方法：</p>
-<ul>
-<li><p>push:存入数据到缓冲区</p>
-</li>
-<li><p>get:获取的缓冲区的数据</p>
-</li>
-</ul>
-<p>三：缓冲区的四个核心属性：</p>
-<ul>
-<li>capactity:容量，表示缓冲区中最大存储数据的容量，一旦声明就不能改变。</li>
-<li>limit:界限，表示缓冲区可以操作数据的大小。（limit后数据不能进行读写）</li>
-<li>position:位置，表示缓冲区中正在操作数据的位置。</li>
-<li>mark:标记，表示记录当前postion位置，可以通过reset()恢复到mark位置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&lt;&#x3D;mark&lt;&#x3D;position&lt;&#x3D;limit&lt;&#x3D;capacity</span><br></pre></td></tr></table></figure>
-
-<h3 id="直接缓冲区和非直接缓冲区"><a href="#直接缓冲区和非直接缓冲区" class="headerlink" title="直接缓冲区和非直接缓冲区"></a>直接缓冲区和非直接缓冲区</h3><p>非直接缓冲区：通过allocate()分配的缓冲区，将建立在JVM的内存中</p>
-<p>直接缓冲区：通过allocateDirect()分配直接缓冲区，将建立在物理内存中，可以提高效率，但是消耗资源，有时候不稳定</p>
-<h2 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h2><p>用于源节点与目标节点的连接</p>
-<p>在Java NIO中负责缓冲区数据的传输</p>
-<p>一：通道的主要实现类</p>
-<p>java.nio.channels.Channel接口：</p>
-<ul>
-<li>FileChannel    本地</li>
-<li>SocketChannel    TCP</li>
-<li>ServerSocketChannel     TCP</li>
-<li>DatagramChannel    UDP</li>
-</ul>
-<p>二：获取通道</p>
-<ol>
-<li>Java针对支持通道的类提供了getChannel</li>
+            <h1 id="VirtualBox虚拟机搭建Linux系统"><a href="#VirtualBox虚拟机搭建Linux系统" class="headerlink" title="VirtualBox虚拟机搭建Linux系统"></a>VirtualBox虚拟机搭建Linux系统</h1><ol>
+<li>下载安装<a class="link"   target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads" >VirtualBox<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
-<ul>
-<li><p>本地IO:</p>
-<ul>
-<li><p>FileInputStream/FileOutStream</p>
-</li>
-<li><p>RandomAccessFile</p>
-</li>
-</ul>
-</li>
-<li><p>网络IO:</p>
-<ul>
-<li>Socket</li>
-<li>ServerSocket</li>
-<li>DatagramSocket</li>
-</ul>
-</li>
-</ul>
+<p>默认后续安装的虚拟机是在C盘，如果不想放在C盘，可以打开VirtualBox来设置</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223100342771.png" alt="image-20220223100342771"></p>
 <ol start="2">
-<li>在jdk7中的NIO.2针对各个通道提供了静态方法open()</li>
-<li>在jdk7中的NIO.2的Files工具类的newByteChannel()</li>
+<li><p>检查电脑BIOS是否开启CPU虚拟化</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223093830758.png" alt="image-20220223093830758"></p>
+</li>
 </ol>
-<p>三：通道之间的数据传输</p>
-<ul>
-<li>transferFrom</li>
-<li>transferTo</li>
-</ul>
-<h2 id="分散与聚集"><a href="#分散与聚集" class="headerlink" title="分散与聚集"></a>分散与聚集</h2><p>分散（Scatter）读取：将通道中的数据分散到多个缓冲区中</p>
-<p>聚集（Gather）写入：将多个缓冲区的数据聚集到通道中</p>
-<h2 id="字符集Charset"><a href="#字符集Charset" class="headerlink" title="字符集Charset"></a>字符集Charset</h2><p>编码：字符串 -&gt; 字节数组</p>
-<p>解码：字节数组 -&gt; 字符串 </p>
-<h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>三个核心：</p>
-<ul>
-<li><p>通道(Channel)：负责连接</p>
-<ul>
-<li><p>java.nio.channels.Channel接口：</p>
-<ul>
-<li><p>SelectableChannel</p>
-<ul>
-<li>SocketChannel</li>
-<li>ServerSocketChannel</li>
-<li>DatagramChannel</li>
-</ul>
-<ul>
-<li>Pipe.SinkChannel</li>
-<li>Pipe.SourceChannel</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>缓冲区(Buffer)：负责数据的存取</p>
-</li>
-<li><p>选择器(Selector)：是SelectableChannel的多路复用器。用于监控SelectableChannel的IO状况</p>
-</li>
-</ul>
-<h2 id="获取路径下的文件列表"><a href="#获取路径下的文件列表" class="headerlink" title="获取路径下的文件列表"></a>获取路径下的文件列表</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getFileByPath</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	String folder = <span class="string">&quot;F:\\ideaWorkSpace&quot;</span>;</span><br><span class="line">    Path path = Paths.get(folder);</span><br><span class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">    DirectoryStream&lt;Path&gt; dirStream = Files.newDirectoryStream(path);</span><br><span class="line">    <span class="keyword">for</span> (Path processPath : dirStream) &#123;</span><br><span class="line">        File file = processPath.toFile();</span><br><span class="line">        System.out.println(<span class="string">&quot;文件最后修改时间:&quot;</span> + sdf.format(file.lastModified()));</span><br><span class="line">        System.out.println(<span class="string">&quot;文件名:&quot;</span> + file.getName());</span><br><span class="line">     &#125;</span><br><span class="line">     dirStream.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若未启用，那么开机时，快速按ESC，进入BIOS后，找到Configuration(配置)选项，选择Intel Virtual Technology(CPU虚拟化)，设置为Enabled，最后保存退出就可以了。</p>
+<ol start="3">
+<li>下载安装<a class="link"   target="_blank" rel="noopener" href="https://www.vagrantup.com/downloads" >Vagrant<i class="fas fa-external-link-alt"></i></a>，在cmd窗口输入vagrant验证是否成功</li>
+</ol>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223094619682.png" alt="image-20220223094619682"></p>
+<ol start="4">
+<li>下载镜像</li>
+</ol>
+<p>​    官方地址：<a class="link"   target="_blank" rel="noopener" href="https://app.vagrantup.com/boxes/search" >Discover Vagrant Boxes - Vagrant Cloud (vagrantup.com)<i class="fas fa-external-link-alt"></i></a></p>
+<p>​    <img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095217581.png" alt="image-20220223095217581"></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095247548.png" alt="image-20220223095247548"></p>
+<p>​    如果上述官方网址下载慢，可以尝试下方的镜像网站</p>
+<p>​    镜像地址：<a class="link"   target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/centos-cloud/centos/7/vagrant/x86_64/images/" >Index of /centos-cloud/centos/7/vagrant/x86_64/images/ (ustc.edu.cn)<i class="fas fa-external-link-alt"></i></a></p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223095531351.png" alt="image-20220223095531351"></p>
+<ol start="5">
+<li>初始化环境</li>
+</ol>
+<p>选择一个目录（建议：在你第一步设置VirtualBox默认虚拟电脑目录），继续在cmd执行此命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init centos/<span class="number">7</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/image-codeStudy/image-20210803220727621.png" alt="image-20210803220727621"></p>
+<p>​    此时会产生一个文件<strong>Vagrantfile</strong>后续设置网络需要使用</p>
+<ol start="6">
+<li>安装镜像</li>
+</ol>
+<p>同上述你选择的目录，cmd执行此命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add centos/<span class="number">7</span> CentOS<span class="literal">-7</span><span class="literal">-x86_64</span><span class="literal">-Vagrant</span><span class="literal">-2004_01</span>.VirtualBox.box</span><br></pre></td></tr></table></figure>
+
+<p>上述命令执行完成后，继续执行vagrant up启动虚拟机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后，可以尝试连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p>vagrant和root用户密码都是vagrant</p>
+<ol start="7">
+<li>设置网络</li>
+</ol>
+<p>​    cmd输入ipconfig查看虚拟机的适配器ip为192.168.56.1</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223101854329.png" alt="image-20220223101854329"></p>
+<p>​    打开初始化生成的Vagrantfile文件，解开这行的注释，并且保持同一网段，可以设置为192.168.56.10</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223101749320.png" alt="image-20220223101749320"></p>
+<p> 修改完成后，在初始化目录执行 <code>vagrant reload</code> 命令重建虚机</p>
+<ol start="8">
+<li>使用第三方工具连接</li>
+</ol>
+<hr>
+<p>问题：</p>
+<p>刚输入用户名vagrant</p>
+<p>error：<strong>No supported authentication methods available (server sent: publickey,gssapi-keyex,gssapi-with-mic)</strong></p>
+<p>解决方法：</p>
+<p>启动虚拟机<code>vagrant up</code>，使用<code>vagrant ssh</code>连接</p>
+<p>输入<code>sudo vi /etc/ssh/sshd_config</code>找到PasswordAuthentication配置改成yes</p>
+<p><img src="https://gitee.com/carrywl/image-hosting/raw/master/img/image-20220223110549077.png" alt="image-20220223110549077"></p>
+<p>修改完成后保存退出，重启 SSH 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>再次输入用户名连接就可以了</p>
 
         </div>
 
@@ -341,11 +286,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：JAVA-NIO</li>
+        <li>本文标题：VirtualBox虚拟机</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-08-03 00:00:00</li>
+        <li>创建时间：2022-02-23 00:00:00</li>
         <li>
-            本文链接：https://carrywl.gitee.io/2021/08/03/JAVA-NIO/
+            本文链接：https://carrywl.gitee.io/2022/02/23/VirtualBox虚拟机/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -359,29 +304,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/08/Elasticsearch/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Elasticsearch</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/07/30/IDEA/"
+                           href="/2022/02/21/Spring5/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">IDEA</span>
+                                <span class="post-nav-title-item">Spring5</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -580,7 +510,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-NIO"><span class="nav-text">JAVA-NIO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO%E5%92%8CNIO%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">IO和NIO区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-text">缓冲区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA%E5%92%8C%E9%9D%9E%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-text">直接缓冲区和非直接缓冲区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%81%93"><span class="nav-text">通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%95%A3%E4%B8%8E%E8%81%9A%E9%9B%86"><span class="nav-text">分散与聚集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86Charset"><span class="nav-text">字符集Charset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="nav-text">网络通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="nav-text">获取路径下的文件列表</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F"><span class="nav-text">VirtualBox虚拟机搭建Linux系统</span></a></li></ol>
     </div>
 </div>
         </aside>
