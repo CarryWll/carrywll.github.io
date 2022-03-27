@@ -162,13 +162,13 @@
                     <div class="author">
                         <span class="name">Carry灭霸</span>
                         
-                            <span class="author-label">Lv3</span>
+                            <span class="author-label">Lv4</span>
                         
                     </div>
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-12-08 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2022-03-17 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -294,6 +294,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">从远程复制文件到本地目录</span></span><br><span class="line">scp -P 22022 root@192.168.10.10:/opt/soft/rhel-server-7.3-x86_64.tar.gz /opt/soft/</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>异常一：syntax error near unexpected token ‘$’\r’’</p>
+<p>原因：所处理的文件换行符是dos格式的”\r\n”<br>可以使用<code>cat -v 文件名</code>来查看换行符，如果是上述的，则行结尾会是^m<br>需要转换成linux/unix格式的”\n”<br>转换命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/\r//g&#x27; task_start.sh &gt; task_start2.sh </span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/55597646fa84" >shell文件报错syntax error near unexpected token ‘$’\r’’ - 简书 (jianshu.com)<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+
         </div>
 
         
@@ -302,9 +313,9 @@
     <ul>
         <li>本文标题：Linux指令</li>
         <li>本文作者：Carry灭霸</li>
-        <li>创建时间：2021-12-08 00:00:00</li>
+        <li>创建时间：2022-03-17 00:00:00</li>
         <li>
-            本文链接：https://carrywl.gitee.io/2021/12/08/Linux指令/
+            本文链接：https://carrywl.gitee.io/2022/03/17/Linux指令/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -318,29 +329,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/01/04/linux%E6%8C%82%E8%BD%BD%E6%96%B0%E7%A3%81%E7%9B%98%E5%88%B0%E6%A0%B9%E7%9B%AE%E5%BD%95/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">linux挂载新磁盘到根目录</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/11/01/Git/"
+                           href="/2022/03/17/minio/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Git</span>
+                                <span class="post-nav-title-item">minio</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -539,7 +535,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8Bcat"><span class="nav-text">文件查看cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEfind"><span class="nav-text">查找find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4rm"><span class="nav-text">删除rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ll"><span class="nav-text">ll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8ls"><span class="nav-text">文件目录列表ls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab"><span class="nav-text">crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-text">新增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="nav-text">查找命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E6%9F%A5%E6%89%BEegrep"><span class="nav-text">文件内查找egrep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="nav-text">变量赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%8C%87%E4%BB%A4"><span class="nav-text">网络指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#netstat"><span class="nav-text">netstat</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8B%B7%E8%B4%9D"><span class="nav-text">远程拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scp%E5%91%BD%E4%BB%A4"><span class="nav-text">scp命令</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E4%BB%A4"><span class="nav-text">文件管理指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8Bcat"><span class="nav-text">文件查看cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEfind"><span class="nav-text">查找find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6touch"><span class="nav-text">创建文件touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8mv"><span class="nav-text">移动mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4rm"><span class="nav-text">删除rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95mkdir"><span class="nav-text">创建目录mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ll"><span class="nav-text">ll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8ls"><span class="nav-text">文件目录列表ls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E8%A7%A3%E5%8E%8B"><span class="nav-text">打包解压</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-text">unzip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab"><span class="nav-text">crontab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-text">新增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="nav-text">查找命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E6%9F%A5%E6%89%BEegrep"><span class="nav-text">文件内查找egrep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="nav-text">变量赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%8C%87%E4%BB%A4"><span class="nav-text">网络指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#netstat"><span class="nav-text">netstat</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8B%B7%E8%B4%9D"><span class="nav-text">远程拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scp%E5%91%BD%E4%BB%A4"><span class="nav-text">scp命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell%E8%84%9A%E6%9C%AC"><span class="nav-text">shell脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-text">异常</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
